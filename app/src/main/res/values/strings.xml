@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IntelicaLabs-Controller</string>
+
+    <string name="title_activity_game_controller">GameController</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
