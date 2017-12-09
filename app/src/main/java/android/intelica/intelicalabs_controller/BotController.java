@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class BotController extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class BotController extends AppCompatActivity {
     private Button izquierda;
     private Button derecha;
     private Button colorMixer;
+    private Switch statusSwitch;
 
     private BluetoothSocket bluetoothSocket = null;
 
@@ -37,6 +40,7 @@ public class BotController extends AppCompatActivity {
         izquierda = (Button) findViewById(R.id.buttonIzquierda);
         derecha = (Button) findViewById(R.id.buttonDerecha);
         colorMixer = (Button) findViewById(R.id.buttonColorMixer);
+        statusSwitch = (Switch) findViewById(R.id.statusSwitch);
 
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
@@ -132,6 +136,22 @@ public class BotController extends AppCompatActivity {
                 startActivity(color);
             }
         });
+
+        //CHECAR EL STATUS DE CONECCCION DEL ROBOT
+        if (bluetoothSocket != null){
+            statusSwitch.setChecked(true);
+            statusSwitch.setText("ON");
+        } else {
+            statusSwitch.setChecked(false);
+            statusSwitch.setText("OFF");
+        }
+
+
+
+
+
+
+
     }
 
 

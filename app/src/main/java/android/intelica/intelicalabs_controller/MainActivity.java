@@ -224,6 +224,7 @@ Set<BluetoothDevice> pariedDevices;
             public void cancel() {
                 try {
                     globalSocket.close();
+                    globalSocket=null;
                 } catch (IOException e) { }
             }
 
