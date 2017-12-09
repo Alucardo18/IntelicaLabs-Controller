@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class ColorMixer extends AppCompatActivity {
 
@@ -39,38 +40,56 @@ public class ColorMixer extends AppCompatActivity {
 
     bluetoothSocket = MainActivity.globalSocket;
 
-///Seekbars
+///SEEKBARS
         redSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                MainActivity.mConnectedThread.write("#R"+progress + "\n");
+                if (bluetoothSocket != null) {
+                    MainActivity.mConnectedThread.write("#R" + progress + "\n");
+                }
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                if (bluetoothSocket == null){
+                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         greenSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                MainActivity.mConnectedThread.write("#G"+progress + "\n");
+                if (bluetoothSocket != null) {
+                    MainActivity.mConnectedThread.write("#G" + progress + "\n");
+                }
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                if (bluetoothSocket == null){
+                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         blueSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                MainActivity.mConnectedThread.write("#B"+progress + "\n");
+                if (bluetoothSocket != null) {
+                    MainActivity.mConnectedThread.write("#B" + progress + "\n");
+                }
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                if (bluetoothSocket == null){
+                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
