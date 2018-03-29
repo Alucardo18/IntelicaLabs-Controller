@@ -44,11 +44,15 @@ TextView textColorValue;
         colorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener() {
             @Override
             public void onColorChanged(int color) {
+
                 int A = (color >> 24) & 0xff; // or color >>> 24
                 int R = (color >> 16) & 0xff;
                 int G = (color >>  8) & 0xff;
                 int B = (color      ) & 0xff;
-                textColorValue.setText("RED="+ R +" GREEN="+ G + " BLUE="+B+ "Alpha" + A);
+                textColorValue.setText("#RGB"+R+","+G+","+B+",");
+                if (bluetoothSocket != null) {
+                    MainActivity.mConnectedThread.write("#RGB"+R+","+G+","+B+","+"\n");
+                }
 
 
             }
