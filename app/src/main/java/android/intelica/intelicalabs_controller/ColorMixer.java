@@ -5,15 +5,18 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import com.larswerkman.holocolorpicker.ColorPicker;
+
+import com.larswerkman.holocolorpicker.SVBar;
 
 public class ColorMixer extends AppCompatActivity {
 
-    private SeekBar redSeekBar;
-    private SeekBar greenSeekBar;
-    private SeekBar blueSeekBar;
+ColorPicker colorPicker;
+SVBar svBar;
+TextView textColorValue;
+
     public BluetoothSocket bluetoothSocket=null;
 
 
@@ -22,16 +25,6 @@ public class ColorMixer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_mixer);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-//casting
-        redSeekBar = (SeekBar) findViewById(R.id.seekBarRed);
-        greenSeekBar = (SeekBar) findViewById(R.id.seekBarGreen);
-        blueSeekBar = (SeekBar) findViewById(R.id.seekBarBlue);
-        redSeekBar.setMax(200);
-        greenSeekBar.setMax(200);
-        blueSeekBar.setMax(200);
-
-
 //HIDE ACTIONBAR
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -40,60 +33,31 @@ public class ColorMixer extends AppCompatActivity {
 
     bluetoothSocket = MainActivity.globalSocket;
 
-///SEEKBARS
-        redSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+    colorPicker = (ColorPicker) findViewById(R.id.picker);
+    svBar = (SVBar) findViewById(R.id.svbar);
+    textColorValue = (TextView) findViewById(R.id.textColorValue);
 
+
+    colorPicker.addSVBar(svBar);
+    colorPicker.getColor();
+    colorPicker.setShowOldCenterColor(false);
+
+        colorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onColorChanged(int color) {
+
+                int A = (color >> 24) & 0xff; // or color >>> 24
+                int R = (color >> 16) & 0xff;
+                int G = (color >>  8) & 0xff;
+                int B = (color      ) & 0xff;
+                textColorValue.setText("#RGB"+R+","+G+","+B+",");
                 if (bluetoothSocket != null) {
-                    MainActivity.mConnectedThread.write("#R" + progress + "\n");
+                    MainActivity.mConnectedThread.write("#RGB"+R+","+G+","+B+","+"\n");
                 }
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if (bluetoothSocket == null){
-                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+
+
             }
         });
 
-        greenSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (bluetoothSocket != null) {
-                    MainActivity.mConnectedThread.write("#G" + progress + "\n");
-                }
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if (bluetoothSocket == null){
-                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-
-        blueSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (bluetoothSocket != null) {
-                    MainActivity.mConnectedThread.write("#B" + progress + "\n");
-                }
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if (bluetoothSocket == null){
-                    Toast.makeText(ColorMixer.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
     }
 }
