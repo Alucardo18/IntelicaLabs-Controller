@@ -5,35 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#323232"
-    tools:context="android.intelica.intelicalabs_controller.ColorMixer">
+    tools:context="android.intelica.intelicalabs_controller.ColorMixer"
+    tools:layout_editor_absoluteY="89dp">
 
     <com.larswerkman.holocolorpicker.ColorPicker
         android:id="@+id/picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.986"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintVertical_bias="0.496" />
 
-    <com.larswerkman.holocolorpicker.OpacityBar
-        android:id="@+id/opacitybar"
+    <com.larswerkman.holocolorpicker.SVBar
+        android:id="@+id/svbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/picker"
-        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,20 +37,16 @@
         android:id="@+id/textColorValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:text="RGB"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/opacitybar"
-        app:layout_constraintStart_toStartOf="@+id/opacitybar"
-        app:layout_constraintTop_toBottomOf="@+id/opacitybar"
-        app:layout_constraintVertical_bias="0.201" />
-
+        app:layout_constraintEnd_toEndOf="@+id/svbar"
+        app:layout_constraintStart_toStartOf="@+id/svbar"
+        app:layout_constraintTop_toBottomOf="@+id/svbar" />
 
 
 </android.support.constraint.ConstraintLayout>

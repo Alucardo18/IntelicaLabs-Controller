@@ -6,15 +6,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
-import com.larswerkman.holocolorpicker.OpacityBar;
+
+import com.larswerkman.holocolorpicker.SVBar;
 
 public class ColorMixer extends AppCompatActivity {
 
 ColorPicker colorPicker;
-OpacityBar opacityBar;
+SVBar svBar;
 TextView textColorValue;
 
     public BluetoothSocket bluetoothSocket=null;
@@ -34,10 +34,11 @@ TextView textColorValue;
     bluetoothSocket = MainActivity.globalSocket;
 
     colorPicker = (ColorPicker) findViewById(R.id.picker);
-    opacityBar = (OpacityBar) findViewById(R.id.opacitybar);
+    svBar = (SVBar) findViewById(R.id.svbar);
     textColorValue = (TextView) findViewById(R.id.textColorValue);
 
-    colorPicker.addOpacityBar(opacityBar);
+
+    colorPicker.addSVBar(svBar);
     colorPicker.getColor();
     colorPicker.setShowOldCenterColor(false);
 
