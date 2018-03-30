@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#323232"
+    android:background="@drawable/basicbackground"
     tools:context="android.intelica.intelicalabs_controller.BotController"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="73dp">
@@ -29,7 +29,7 @@
         android:id="@+id/buttonAtras"
         android:layout_width="130dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:text="DOWN"
@@ -96,5 +96,93 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="47dp"
+        android:text="MODES"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBattle"
+        app:layout_constraintEnd_toEndOf="@+id/buttonTrack"
+        app:layout_constraintStart_toStartOf="@+id/buttonBattle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBattle"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="8dp"
+        android:text="BATTLE"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLine"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTrack"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdelante"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/buttonTrack"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:text="TRACK"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHonk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonBattle"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/buttonLine"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="2dp"
+        android:text="LINE"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDerecha"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHonk"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdelante"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBattle" />
+
+    <Button
+        android:id="@+id/buttonHonk"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:text="HONK"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDerecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonLine"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTrack" />
 
 </android.support.constraint.ConstraintLayout>
