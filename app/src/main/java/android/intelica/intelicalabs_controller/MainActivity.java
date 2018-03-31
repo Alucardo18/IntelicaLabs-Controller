@@ -40,7 +40,7 @@ public static ConnectedThread mConnectedThread;
 ListView listView;
 Set<BluetoothDevice> pariedDevices;
 
-
+//TODO: convert MainActivityLayout into Landscape layout
 
 
 
