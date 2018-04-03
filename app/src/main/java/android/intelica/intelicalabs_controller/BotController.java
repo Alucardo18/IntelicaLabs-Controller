@@ -168,7 +168,7 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
                     textViewMode.setText("RANGER MODE");
                     textViewMode.setTextColor(getColor(R.color.colorPrimary));
                     MainActivity.mConnectedThread.write("%RANGER" + "\n");
-                    Toast.makeText(BotController.this,"BATTLE MODE ACTIVATED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BotController.this,"RANGER MODE ACTIVATED",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(BotController.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
                 }
