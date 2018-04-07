@@ -59,7 +59,7 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
             statusSwitch.setText("OFF");
         }
 
-//ADELANTE
+//ADELANTE //TODO: CHANGE BUTTON FOR IMAGE BUTTON
     adelante.setOnTouchListener(new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -146,6 +146,7 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
             }
         });
         //BOTONES DE FUNCIONALIDAD ESPECIAL
+        //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
         battle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,8 +12,10 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,6 +43,7 @@ ListView listView;
 Set<BluetoothDevice> pariedDevices;
 
 //TODO: convert MainActivityLayout into Landscape layout
+//TODO: SET A CUSTOM LISTVIEW WITH AN IMAGE OF BLUETOOTH ICON
 
 
 
@@ -158,9 +161,10 @@ Set<BluetoothDevice> pariedDevices;
                 for (BluetoothDevice bt : pariedDevices) {
                     devices.add(bt.getName() + "\n" + bt.getAddress());
                 }
+                MyAdapter myAdapter = new MyAdapter(MainActivity.this,R.layout.my_listview,devices);
 
-                ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, devices);
-                listView.setAdapter(arrayAdapter);
+                //ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, devices);
+                listView.setAdapter(myAdapter);
              } else {
                 Toast.makeText(MainActivity.this, "No paired devices were found", Toast.LENGTH_LONG).show();
                 }
@@ -307,3 +311,5 @@ Set<BluetoothDevice> pariedDevices;
 
 
 }
+
+
