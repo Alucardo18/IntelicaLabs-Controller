@@ -18,13 +18,11 @@ public class MyAdapter extends BaseAdapter {
             this.context = context;
             this.layout = layout;
             this.names = names;
-
         }
 
     @Override
     public int getCount() {
         return this.names.size();
-
     }
 
     @Override
