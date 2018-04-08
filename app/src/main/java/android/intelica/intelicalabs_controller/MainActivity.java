@@ -9,17 +9,17 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -36,6 +36,7 @@ private static final int BLUETOOTH_DISCOVERABLE_DURATION = 250;
 private Button conectar;
 private Button desconectar;
 private Button controller;
+private WebView webView;
 private BluetoothDevice globalDevice;
 public static BluetoothSocket globalSocket = null;
 public static ConnectedThread mConnectedThread;
@@ -51,10 +52,13 @@ Set<BluetoothDevice> pariedDevices;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.action_intelica);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setIcon(R.mipmap.action_intelica);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         if ((BluetoothManager.isBluetoothSupported())&& !BluetoothManager.isBluetoothEnable()){
                     turnOnBluetooth();
@@ -63,6 +67,20 @@ Set<BluetoothDevice> pariedDevices;
     conectar = (Button) findViewById(R.id.buttonConnect);
     desconectar = (Button) findViewById(R.id.buttonRelease);
     controller = (Button) findViewById(R.id.gameController);
+    webView = (WebView) findViewById(R.id.webView);
+
+    webView.getSettings().setLoadWithOverviewMode(true);
+    webView.getSettings().setUseWideViewPort(true);
+
+
+        if (globalSocket != null){
+            webView.loadUrl("file:///android_asset/connected.png");
+            Toast.makeText(this, "ROBOT CONNECTED", Toast.LENGTH_SHORT).show();
+        } else {
+            webView.loadUrl("file:///android_asset/bluemotion.gif");
+        }
+
+    ////////////////VIEWS
 // CONECTAR
         conectar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,11 +129,7 @@ Set<BluetoothDevice> pariedDevices;
             }
         });
 
-
-
-
-
-    }
+    }//// FIN ON CREATE
 
 
 

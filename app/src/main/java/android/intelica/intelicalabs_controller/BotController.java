@@ -31,10 +31,10 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         setContentView(R.layout.activity_bot_controller);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 //casstting views
-        Button adelante = (Button) findViewById(R.id.buttonAdelante);
-        Button atras = (Button) findViewById(R.id.buttonAtras);
-        Button izquierda = (Button) findViewById(R.id.buttonIzquierda);
-        Button derecha = (Button) findViewById(R.id.buttonDerecha);
+        final Button adelante = (Button) findViewById(R.id.buttonAdelante);
+        final Button atras = (Button) findViewById(R.id.buttonAtras);
+        final Button izquierda = (Button) findViewById(R.id.buttonIzquierda);
+        final Button derecha = (Button) findViewById(R.id.buttonDerecha);
         Button colorMixer = (Button) findViewById(R.id.buttonColorMixer);
         Button battle = (Button) findViewById(R.id.buttonBattle);
         Button ranger = (Button) findViewById(R.id.buttonRanger);
@@ -59,16 +59,18 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
             statusSwitch.setText("OFF");
         }
 
-//ADELANTE //TODO: CHANGE BUTTON FOR IMAGE BUTTON
+//ADELANTE
     adelante.setOnTouchListener(new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (bluetoothSocket !=null){
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    adelante.setBackgroundResource(R.drawable.arriba_pressed);
                     MainActivity.mConnectedThread.write("%FORWARD"+"\n");
                 }
                 if(event.getAction() == MotionEvent.ACTION_UP){
+                    adelante.setBackgroundResource(R.drawable.arriba);
                     MainActivity.mConnectedThread.write("%STOP"+"\n");
                 }
 
@@ -86,9 +88,11 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
                if (bluetoothSocket !=null){
 
                    if(event.getAction() == MotionEvent.ACTION_DOWN){
+                       atras.setBackgroundResource(R.drawable.abajo_pressed);
                        MainActivity.mConnectedThread.write("%BACKWARD" + "\n");
                    }
                    if(event.getAction() == MotionEvent.ACTION_UP){
+                       atras.setBackgroundResource(R.drawable.abajo);
                        MainActivity.mConnectedThread.write("%STOP" + "\n");
                    }
 
@@ -106,9 +110,11 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
                 if (bluetoothSocket !=null){
 
                     if(event.getAction() == MotionEvent.ACTION_DOWN){
+                        derecha.setBackgroundResource(R.drawable.derecha_pressed);
                         MainActivity.mConnectedThread.write("%RIGHT"+ "\n");
                     }
                     if(event.getAction() == MotionEvent.ACTION_UP){
+                        derecha.setBackgroundResource(R.drawable.derecha);
                         MainActivity.mConnectedThread.write("%STOP"+"\n");
                     }
 
@@ -126,9 +132,11 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
                 if (bluetoothSocket !=null){
 
                     if(event.getAction() == MotionEvent.ACTION_DOWN){
+                        izquierda.setBackgroundResource(R.drawable.izquierda_pressed);
                         MainActivity.mConnectedThread.write("%LEFT" + "\n");
                     }
                     if(event.getAction() == MotionEvent.ACTION_UP){
+                        izquierda.setBackgroundResource(R.drawable.izquierda);
                         MainActivity.mConnectedThread.write("%STOP" + "\n");
                     }
 
