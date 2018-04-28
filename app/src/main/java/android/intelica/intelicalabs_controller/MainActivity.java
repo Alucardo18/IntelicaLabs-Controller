@@ -7,16 +7,15 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -44,7 +43,7 @@ ListView listView;
 Set<BluetoothDevice> pariedDevices;
 
 //TODO: convert MainActivityLayout into Landscape layout
-//TODO: SET A CUSTOM LISTVIEW WITH AN IMAGE OF BLUETOOTH ICON
+
 
 
 
@@ -99,7 +98,8 @@ Set<BluetoothDevice> pariedDevices;
                     ConnectThread connectThread = new ConnectThread(globalDevice);
                     connectThread.cancel();
                 }else {
-                    Toast.makeText(MainActivity.this,"AUN NO TE HAS COENCTADO A TU ROBOT",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, StaticMessage.UN_CONNECTED,Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -158,7 +158,7 @@ Set<BluetoothDevice> pariedDevices;
                 }
                 break;
                 case Activity.RESULT_CANCELED:{
-                    Toast.makeText(MainActivity.this,"HABILITE EL BLUETOOTH PARA CONECTAR SU ROBOT",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, StaticMessage.UN_CONNECTED,Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -180,11 +180,11 @@ Set<BluetoothDevice> pariedDevices;
                 //ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, devices);
                 listView.setAdapter(myAdapter);
              } else {
-                Toast.makeText(MainActivity.this, "No paired devices were found", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,StaticMessage.DV_NOT_FOUND, Toast.LENGTH_LONG).show();
                 }
         }
         else {
-        Toast.makeText(MainActivity.this,"Hablite el bluetooth primero", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, StaticMessage.BT_NOT_ENABLE, Toast.LENGTH_LONG).show();
         }
 
     }

@@ -3,6 +3,7 @@ package android.intelica.intelicalabs_controller;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,17 +13,14 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class BotController extends AppCompatActivity {
 
 
-
-public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
+    public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
 
 
 //Full screen settings
-//TODO: CREATE A NEW CLASS TO SET ALL GENERAL MESSAGES INTO A STATIC VARIABLES
 
 
     @Override
@@ -44,14 +42,14 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
 
         ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.hide();
-                    }
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         bluetoothSocket = MainActivity.globalSocket;
         //CHECAR EL STATUS DE CONECCCION DEL ROBOT
         statusSwitch.setClickable(false);
-        if (bluetoothSocket != null){
+        if (bluetoothSocket != null) {
             statusSwitch.setChecked(true);
             statusSwitch.setText("ON");
         } else {
@@ -60,66 +58,81 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         }
 
 //ADELANTE
-    adelante.setOnTouchListener(new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            if (bluetoothSocket !=null){
+        adelante.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (bluetoothSocket != null) {
 
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    adelante.setBackgroundResource(R.drawable.arriba_pressed);
-                    MainActivity.mConnectedThread.write("%FORWARD"+"\n");
-                }
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                    adelante.setBackgroundResource(R.drawable.arriba);
-                    MainActivity.mConnectedThread.write("%STOP"+"\n");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        adelante.setBackgroundResource(R.drawable.arriba_pressed);
+                        MainActivity.mConnectedThread.write("%FORWARD" + "\n");
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        adelante.setBackgroundResource(R.drawable.arriba);
+                        MainActivity.mConnectedThread.write("%STOP" + "\n");
+                    }
+                } else {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        adelante.setBackgroundResource(R.drawable.arriba_pressed);
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        adelante.setBackgroundResource(R.drawable.arriba);
+
+                    }
                 }
 
-            }else {
-                Toast.makeText(BotController.this,"CONNECTE SU ROBOT",Toast.LENGTH_SHORT).show();
+                return true;
             }
-
-            return true;
-        }
-    });
+        });
 //ATRAS
-       atras.setOnTouchListener(new View.OnTouchListener() {
-           @Override
-           public boolean onTouch(View v, MotionEvent event) {
-               if (bluetoothSocket !=null){
+        atras.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (bluetoothSocket != null) {
 
-                   if(event.getAction() == MotionEvent.ACTION_DOWN){
-                       atras.setBackgroundResource(R.drawable.abajo_pressed);
-                       MainActivity.mConnectedThread.write("%BACKWARD" + "\n");
-                   }
-                   if(event.getAction() == MotionEvent.ACTION_UP){
-                       atras.setBackgroundResource(R.drawable.abajo);
-                       MainActivity.mConnectedThread.write("%STOP" + "\n");
-                   }
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        atras.setBackgroundResource(R.drawable.abajo_pressed);
+                        MainActivity.mConnectedThread.write("%BACKWARD" + "\n");
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        atras.setBackgroundResource(R.drawable.abajo);
+                        MainActivity.mConnectedThread.write("%STOP" + "\n");
+                    }
 
-               }else {
-                   Toast.makeText(BotController.this,"CONNECTE SU ROBOT",Toast.LENGTH_SHORT).show();
-               }
-               return true;
-           }
-       });
+                } else {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        atras.setBackgroundResource(R.drawable.abajo_pressed);
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        atras.setBackgroundResource(R.drawable.abajo);
+                    }
+                }
+                return true;
+            }
+        });
 
 //DERECHA
         derecha.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (bluetoothSocket !=null){
+                if (bluetoothSocket != null) {
 
-                    if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         derecha.setBackgroundResource(R.drawable.derecha_pressed);
-                        MainActivity.mConnectedThread.write("%RIGHT"+ "\n");
+                        MainActivity.mConnectedThread.write("%RIGHT" + "\n");
                     }
-                    if(event.getAction() == MotionEvent.ACTION_UP){
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         derecha.setBackgroundResource(R.drawable.derecha);
-                        MainActivity.mConnectedThread.write("%STOP"+"\n");
+                        MainActivity.mConnectedThread.write("%STOP" + "\n");
                     }
 
-                }else {
-                    Toast.makeText(BotController.this,"CONNECTE SU ROBOT",Toast.LENGTH_SHORT).show();
+                } else {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        derecha.setBackgroundResource(R.drawable.derecha_pressed);
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        derecha.setBackgroundResource(R.drawable.derecha);
+                    }
                 }
                 return true;
             }
@@ -129,19 +142,26 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         izquierda.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (bluetoothSocket !=null){
+                if (bluetoothSocket != null) {
 
-                    if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         izquierda.setBackgroundResource(R.drawable.izquierda_pressed);
                         MainActivity.mConnectedThread.write("%LEFT" + "\n");
                     }
-                    if(event.getAction() == MotionEvent.ACTION_UP){
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         izquierda.setBackgroundResource(R.drawable.izquierda);
                         MainActivity.mConnectedThread.write("%STOP" + "\n");
                     }
 
-                }else {
-                    Toast.makeText(BotController.this,"CONNECTE SU ROBOT",Toast.LENGTH_SHORT).show();
+                } else {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        izquierda.setBackgroundResource(R.drawable.izquierda_pressed);
+
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        izquierda.setBackgroundResource(R.drawable.izquierda);
+
+                    }
                 }
                 return true;
             }
@@ -149,7 +169,7 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         colorMixer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent color = new Intent(BotController.this,ColorMixer.class);
+                Intent color = new Intent(BotController.this, ColorMixer.class);
                 startActivity(color);
             }
         });
@@ -158,13 +178,13 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         battle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(bluetoothSocket != null ){
-                    textViewMode.setText("BATTLE MODE");
+                if (bluetoothSocket != null) {
+                    textViewMode.setText(StaticMessage.BATTLE);
                     textViewMode.setTextColor(getColor(R.color.colorPrimary));
                     MainActivity.mConnectedThread.write("%BATTLE" + "\n");
-                    Toast.makeText(BotController.this,"BATTLE MODE ACTIVATED",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(BotController.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BotController.this, StaticMessage.BATTLE_ON, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -173,13 +193,13 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         ranger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bluetoothSocket != null){
-                    textViewMode.setText("RANGER MODE");
+                if (bluetoothSocket != null) {
+                    textViewMode.setText(StaticMessage.RANGER);
                     textViewMode.setTextColor(getColor(R.color.colorPrimary));
                     MainActivity.mConnectedThread.write("%RANGER" + "\n");
-                    Toast.makeText(BotController.this,"RANGER MODE ACTIVATED",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(BotController.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BotController.this, StaticMessage.RANGER_ON, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -187,24 +207,24 @@ public BluetoothSocket bluetoothSocket = null;  //Bluettoh soocket object
         line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bluetoothSocket != null){
-                    textViewMode.setText("LINE MODE");
+                if (bluetoothSocket != null) {
+                    textViewMode.setText(StaticMessage.LINE);
                     textViewMode.setTextColor(getColor(R.color.colorPrimary));
                     MainActivity.mConnectedThread.write("%LINE" + "\n");
-                    Toast.makeText(BotController.this,"LINE MODE ACTIVATED",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(BotController.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BotController.this, StaticMessage.LINE_ON, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
                 }
             }
         });
         honk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bluetoothSocket != null){
+                if (bluetoothSocket != null) {
                     MainActivity.mConnectedThread.write("%HONK" + "\n");
 
-                }else{
-                    Toast.makeText(BotController.this, "CONECTE SU ROBOT PRIMERO", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
                 }
             }
         });
