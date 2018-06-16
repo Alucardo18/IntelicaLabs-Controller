@@ -7,17 +7,18 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,12 +35,14 @@ private static final int BLUETOOTH_DISCOVERABLE_DURATION = 250;
 private Button conectar;
 private Button desconectar;
 private Button controller;
+private WebView webView;
 private BluetoothDevice globalDevice;
 public static BluetoothSocket globalSocket = null;
 public static ConnectedThread mConnectedThread;
 ListView listView;
 Set<BluetoothDevice> pariedDevices;
 
+//TODO: convert MainActivityLayout into Landscape layout
 
 
 
@@ -48,10 +51,13 @@ Set<BluetoothDevice> pariedDevices;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.action_intelica);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setIcon(R.mipmap.action_intelica);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         if ((BluetoothManager.isBluetoothSupported())&& !BluetoothManager.isBluetoothEnable()){
                     turnOnBluetooth();
@@ -60,6 +66,20 @@ Set<BluetoothDevice> pariedDevices;
     conectar = (Button) findViewById(R.id.buttonConnect);
     desconectar = (Button) findViewById(R.id.buttonRelease);
     controller = (Button) findViewById(R.id.gameController);
+    webView = (WebView) findViewById(R.id.webView);
+
+    webView.getSettings().setLoadWithOverviewMode(true);
+    webView.getSettings().setUseWideViewPort(true);
+
+
+        if (globalSocket != null){
+            webView.loadUrl("file:///android_asset/connected.png");
+            Toast.makeText(this, "ROBOT CONNECTED", Toast.LENGTH_SHORT).show();
+        } else {
+            webView.loadUrl("file:///android_asset/bluemotion.gif");
+        }
+
+    ////////////////VIEWS
 // CONECTAR
         conectar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +98,8 @@ Set<BluetoothDevice> pariedDevices;
                     ConnectThread connectThread = new ConnectThread(globalDevice);
                     connectThread.cancel();
                 }else {
-                    Toast.makeText(MainActivity.this,"AUN NO TE HAS COENCTADO A TU ROBOT",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, StaticMessage.UN_CONNECTED,Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -108,11 +129,7 @@ Set<BluetoothDevice> pariedDevices;
             }
         });
 
-
-
-
-
-    }
+    }//// FIN ON CREATE
 
 
 
@@ -141,7 +158,7 @@ Set<BluetoothDevice> pariedDevices;
                 }
                 break;
                 case Activity.RESULT_CANCELED:{
-                    Toast.makeText(MainActivity.this,"HABILITE EL BLUETOOTH PARA CONECTAR SU ROBOT",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, StaticMessage.UN_CONNECTED,Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -158,15 +175,16 @@ Set<BluetoothDevice> pariedDevices;
                 for (BluetoothDevice bt : pariedDevices) {
                     devices.add(bt.getName() + "\n" + bt.getAddress());
                 }
+                MyAdapter myAdapter = new MyAdapter(MainActivity.this,R.layout.my_listview,devices);
 
-                ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, devices);
-                listView.setAdapter(arrayAdapter);
+                //ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, devices);
+                listView.setAdapter(myAdapter);
              } else {
-                Toast.makeText(MainActivity.this, "No paired devices were found", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,StaticMessage.DV_NOT_FOUND, Toast.LENGTH_LONG).show();
                 }
         }
         else {
-        Toast.makeText(MainActivity.this,"Hablite el bluetooth primero", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, StaticMessage.BT_NOT_ENABLE, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -307,3 +325,5 @@ Set<BluetoothDevice> pariedDevices;
 
 
 }
+
+
