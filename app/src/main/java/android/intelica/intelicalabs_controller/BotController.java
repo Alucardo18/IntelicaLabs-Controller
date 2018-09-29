@@ -28,6 +28,10 @@ public class BotController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bot_controller);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 //casstting views
         final Button adelante = (Button) findViewById(R.id.buttonAdelante);
         final Button atras = (Button) findViewById(R.id.buttonAtras);
@@ -41,10 +45,7 @@ public class BotController extends AppCompatActivity {
         Switch statusSwitch = (Switch) findViewById(R.id.statusSwitch);
         final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
+
 
         bluetoothSocket = MainActivity.globalSocket;
         //CHECAR EL STATUS DE CONECCCION DEL ROBOT
