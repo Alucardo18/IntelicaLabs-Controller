@@ -1,7 +1,8 @@
-package android.intelica.intelicalabs_controller;
+package android.intelica.intelicalabs_controller.controller;
 
 import android.bluetooth.BluetoothSocket;
 import android.content.pm.ActivityInfo;
+import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
 import android.support.v7.app.ActionBar;
@@ -15,20 +16,15 @@ import com.larswerkman.holocolorpicker.SVBar;
 
 public class ColorMixer extends AppCompatActivity {
 
-    ColorPicker colorPicker;
-    SVBar svBar;
-    TextView textColorValue;
-
     public BluetoothSocket bluetoothSocket = null;
     private BluetoothOutput bluetoothOutput;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_mixer);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-//HIDE ACTIONBAR
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
@@ -37,10 +33,14 @@ public class ColorMixer extends AppCompatActivity {
         bluetoothSocket = BluetoothConnection.getInstance().getBluetoothSocket();
         this.bluetoothOutput = BluetoothConnection.getInstance().getBluetoothOutput();
 
-        colorPicker = (ColorPicker) findViewById(R.id.picker);
-        svBar = (SVBar) findViewById(R.id.svbar);
-        textColorValue = (TextView) findViewById(R.id.textColorValue);
+        setupColorPicker();
+    }
 
+    private void setupColorPicker(){
+
+        final ColorPicker colorPicker = (ColorPicker) findViewById(R.id.picker);
+        final SVBar svBar = (SVBar) findViewById(R.id.svbar);
+        final TextView textColorValue = (TextView) findViewById(R.id.textColorValue);
 
         colorPicker.addSVBar(svBar);
         colorPicker.getColor();
@@ -62,6 +62,5 @@ public class ColorMixer extends AppCompatActivity {
 
             }
         });
-
     }
 }

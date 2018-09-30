@@ -1,7 +1,6 @@
 package android.intelica.intelicalabs_controller.Util.bluetooth;
 
 import android.bluetooth.BluetoothSocket;
-import android.intelica.intelicalabs_controller.MainActivity;
 
 public class BluetoothConnection {
     private static final BluetoothConnection instance = new BluetoothConnection();
