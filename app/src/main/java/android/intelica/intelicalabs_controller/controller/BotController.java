@@ -163,6 +163,16 @@ public class BotController extends AppCompatActivity {
             }
         });
 
+
+
+        final Button returnButton = (Button) findViewById(R.id.controllerBackButton);
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
         final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
         Button battle = (Button) findViewById(R.id.buttonBattle);

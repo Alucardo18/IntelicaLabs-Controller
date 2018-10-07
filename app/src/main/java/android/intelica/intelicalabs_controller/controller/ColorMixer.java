@@ -8,6 +8,8 @@ import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
@@ -33,7 +35,21 @@ public class ColorMixer extends AppCompatActivity {
         bluetoothSocket = BluetoothConnection.getInstance().getBluetoothSocket();
         this.bluetoothOutput = BluetoothConnection.getInstance().getBluetoothOutput();
 
-        setupColorPicker();
+        this.setupColorPicker();
+
+        this.setupUiListeners();
+    }
+
+    private void setupUiListeners() {
+
+        final Button returnButton = (Button) findViewById(R.id.colormixBackButton);
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
     }
 
     private void setupColorPicker(){

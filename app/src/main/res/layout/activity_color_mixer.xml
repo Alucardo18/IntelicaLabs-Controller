@@ -8,6 +8,22 @@
     tools:context="android.intelica.intelicalabs_controller.controller.ColorMixer"
     tools:layout_editor_absoluteY="89dp">
 
+    <Button
+        android:id="@+id/colormixBackButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
+
     <com.larswerkman.holocolorpicker.ColorPicker
         android:id="@+id/picker"
         android:layout_width="wrap_content"
