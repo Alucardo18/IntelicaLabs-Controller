@@ -66,6 +66,15 @@ public class BotSelector extends AppCompatActivity {
         this.setupUiListeners();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if ((BluetoothManager.isBluetoothSupported()) && BluetoothManager.isBluetoothEnable()) {
+            listPairedDevices();
+        }
+    }
+
     private void setupUiListeners(){
 
         Button connect = (Button) findViewById(R.id.buttonConnect);
@@ -128,6 +137,7 @@ public class BotSelector extends AppCompatActivity {
             switch (resultCode) {
                 case Activity.RESULT_CANCELED: {
                     Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+                    listPairedDevices();
                 }
             }
         }
