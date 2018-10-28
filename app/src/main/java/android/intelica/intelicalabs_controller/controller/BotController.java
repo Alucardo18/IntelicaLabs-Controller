@@ -7,6 +7,7 @@ import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
+import android.intelica.intelicalabs_controller.Util.help.messages.BotControllerHelpMessages;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,11 +18,25 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
+
 public class BotController extends AppCompatActivity {
 
 
     private BluetoothSocket bluetoothSocket;
     private BluetoothOutput bluetoothOutput;
+    private Button forwards;
+    private Button backwards;
+    private Button rightRotation;
+    private Button leftRotation;
+    private Button battle;
+    private Button line;
+    private Button colorMixer;
+    private Button honk;
+    private Button ranger;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +62,22 @@ public class BotController extends AppCompatActivity {
             statusSwitch.setText("OFF");
         }
 
+        this.forwards = (Button) findViewById(R.id.buttonAdelante);
+        this.backwards = (Button) findViewById(R.id.buttonAtras);
+        this.rightRotation = (Button) findViewById(R.id.buttonDerecha);
+        this.leftRotation = (Button) findViewById(R.id.buttonIzquierda);
+        this.battle = (Button) findViewById(R.id.buttonBattle);
+        this.line = (Button) findViewById(R.id.buttonLine);
+        this.colorMixer = (Button) findViewById(R.id.buttonColorMixer);
+        this.honk = (Button) findViewById(R.id.buttonHonk);
+        this.ranger = (Button) findViewById(R.id.buttonRanger);
+
         this.setupUiListeners();
     }
 
     private void setupUiListeners(){
 
-        final Button forwards = (Button) findViewById(R.id.buttonAdelante);
-        forwards.setOnTouchListener(new View.OnTouchListener() {
+        this.forwards.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (bluetoothSocket != null) {
@@ -80,8 +104,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        final Button backwards = (Button) findViewById(R.id.buttonAtras);
-        backwards.setOnTouchListener(new View.OnTouchListener() {
+        this.backwards.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (bluetoothSocket != null) {
@@ -107,8 +130,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        final Button rightRotation = (Button) findViewById(R.id.buttonDerecha);
-        rightRotation.setOnTouchListener(new View.OnTouchListener() {
+        this.rightRotation.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (bluetoothSocket != null) {
@@ -134,8 +156,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        final Button leftRotation = (Button) findViewById(R.id.buttonIzquierda);
-        leftRotation.setOnTouchListener(new View.OnTouchListener() {
+        this.leftRotation.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (bluetoothSocket != null) {
@@ -175,7 +196,7 @@ public class BotController extends AppCompatActivity {
 
         //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
         final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
-        Button battle = (Button) findViewById(R.id.buttonBattle);
+
         battle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -192,8 +213,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        Button ranger = (Button) findViewById(R.id.buttonRanger);
-        ranger.setOnClickListener(new View.OnClickListener() {
+        this.ranger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (bluetoothSocket != null) {
@@ -208,7 +228,6 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        Button line = (Button) findViewById(R.id.buttonLine);
         line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,8 +242,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        Button colorMixer = (Button) findViewById(R.id.buttonColorMixer);
-        colorMixer.setOnClickListener(new View.OnClickListener() {
+        this.colorMixer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent color = new Intent(BotController.this, ColorMixer.class);
@@ -232,8 +250,7 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-        Button honk = (Button) findViewById(R.id.buttonHonk);
-        honk.setOnClickListener(new View.OnClickListener() {
+        this.honk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (bluetoothSocket != null) {
@@ -244,5 +261,98 @@ public class BotController extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void help(View view){
+
+        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this);
+        ShowcaseConfig config = new ShowcaseConfig();
+        config.setDelay(500); // half second between each showcase view
+        sequence.setConfig(config);
+
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.forwards)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.FORWARDS.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.backwards)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.BACKWARDS.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.rightRotation)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.ROTATE_RIGHT.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.leftRotation)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.ROTATE_LEFT.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.battle)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.BATTLE.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.line)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.LINE.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.ranger)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.RANGER.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.colorMixer)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.COLOR_MIXER.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.honk)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotControllerHelpMessages.HONK.toString())
+                        .withRectangleShape()
+                        .build()
+        );
+
+        sequence.start();
+
     }
 }
