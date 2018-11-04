@@ -1,6 +1,8 @@
 package android.intelica.intelicalabs_controller.controller;
 
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
@@ -20,6 +22,11 @@ public class ColorMixer extends AppCompatActivity {
 
     public BluetoothSocket bluetoothSocket = null;
     private BluetoothOutput bluetoothOutput;
+    private ColorPicker colorPicker;
+    private SVBar svBar;
+    private TextView textColorValue;
+    private SharedPreferences sharedPref;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,49 +41,67 @@ public class ColorMixer extends AppCompatActivity {
 
         bluetoothSocket = BluetoothConnection.getInstance().getBluetoothSocket();
         this.bluetoothOutput = BluetoothConnection.getInstance().getBluetoothOutput();
+        this.colorPicker = (ColorPicker) findViewById(R.id.picker);
+        this.svBar = (SVBar) findViewById(R.id.svbar);
+        this.textColorValue = (TextView) findViewById(R.id.textColorValue);
 
         this.setupColorPicker();
-
-        this.setupUiListeners();
     }
 
-    private void setupUiListeners() {
+    @Override
+    protected void onStart() {
 
-        final Button returnButton = (Button) findViewById(R.id.colormixBackButton);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        super.onStart();
 
-                finish();
-            }
-        });
+        this.sharedPref = this.getSharedPreferences(
+                getString(R.string.color_preferences), Context.MODE_PRIVATE);
+
+        int color = sharedPref.getInt("color", 0);
+        this.changeColorOnRobot(color);
+        this.showStoredColor(color);
+    }
+
+    public void back(View view){
+        finish();
     }
 
     private void setupColorPicker(){
 
-        final ColorPicker colorPicker = (ColorPicker) findViewById(R.id.picker);
-        final SVBar svBar = (SVBar) findViewById(R.id.svbar);
-        final TextView textColorValue = (TextView) findViewById(R.id.textColorValue);
+        this.colorPicker.addSVBar(svBar);
+        this.colorPicker.getColor();
+        this.colorPicker.setShowOldCenterColor(false);
 
-        colorPicker.addSVBar(svBar);
-        colorPicker.getColor();
-        colorPicker.setShowOldCenterColor(false);
-
-        colorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener() {
+        this.colorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener() {
             @Override
             public void onColorChanged(int color) {
 
-                int A = (color >> 24) & 0xff; // or color >>> 24
-                int R = (color >> 16) & 0xff;
-                int G = (color >> 8) & 0xff;
-                int B = (color) & 0xff;
-                textColorValue.setText("#RGB" + R + "," + G + "," + B + ",");
-                if (bluetoothSocket != null) {
-                    bluetoothOutput.write("#RGB" + R + "," + G + "," + B + "," + "\n");
-                }
-
-
+                saveColor(color);
+                changeColorOnRobot(color);
             }
         });
+    }
+
+    private void showStoredColor(int color) {
+
+        this.colorPicker.setColor(color);
+    }
+
+    private void saveColor(int color) {
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("color", color);
+        editor.apply();
+    }
+
+    private void changeColorOnRobot(int color) {
+
+        int A = (color >> 24) & 0xff; // or color >>> 24
+        int R = (color >> 16) & 0xff;
+        int G = (color >> 8) & 0xff;
+        int B = (color) & 0xff;
+        textColorValue.setText("#RGB" + R + "," + G + "," + B + ",");
+        if (bluetoothSocket != null) {
+            bluetoothOutput.write("#RGB" + R + "," + G + "," + B + "," + "\n");
+        }
     }
 }
