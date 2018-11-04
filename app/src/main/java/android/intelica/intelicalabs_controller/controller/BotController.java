@@ -184,16 +184,6 @@ public class BotController extends AppCompatActivity {
             }
         });
 
-
-
-        final Button returnButton = (Button) findViewById(R.id.controllerBackButton);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
         //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
         final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
 
@@ -261,6 +251,11 @@ public class BotController extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void back(View view){
+
+        finish();
     }
 
     public void help(View view){
