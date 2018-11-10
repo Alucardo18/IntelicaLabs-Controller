@@ -350,4 +350,10 @@ public class BotController extends AppCompatActivity {
         sequence.start();
 
     }
+
+     public void openSettings(View view){
+
+         Intent color = new Intent(BotController.this, ControllerSettings.class);
+         startActivity(color);
+     }
 }

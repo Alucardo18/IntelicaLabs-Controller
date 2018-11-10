@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.BotController" />
-        <activity android:name=".controller.ColorMixer"></activity>
+        <activity android:name=".controller.ColorMixer"/>
+        <activity android:name=".controller.ControllerSettings"/>
     </application>
 
 </manifest>
