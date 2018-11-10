@@ -1,26 +1,35 @@
 <android.support.v7.preference.PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:divider="@color/preference_text_color">
 
     <android.support.v7.preference.PreferenceCategory
-        android:title="Category 1">
+        android:title="Mensajes del control">
 
-        <android.support.v7.preference.SwitchPreferenceCompat
-            android:key="key1"
-            android:title="Switch Preference"
-            android:summary="Switch Summary"
-            android:defaultValue="true" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="forwards"
+            android:title="Adelante"
+            android:summary="Mensaje bluetooth para ir hacia adelante"
+            android:dialogMessage=""
+            android:defaultValue="FORWARD" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="backwards"
+            android:title="Atrás"
+            android:summary="Mensaje bluetooth para ir hacia adelante"
+            android:dialogMessage=""
+            android:defaultValue="BACKWARD" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="clockwise"
+            android:title="Rotar hacia la derecha"
+            android:summary="Mensaje bluetooth para rotar hacia la derecha"
+            android:dialogMessage=""
+            android:defaultValue="RIGHT" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="counter_clockwise"
+            android:title="Rotar hacia la izquierda"
+            android:summary="Mensaje bluetooth para rotar hacia la izquierda"
+            android:dialogMessage=""
+            android:defaultValue="LEFT" />
 
-        <android.support.v7.preference.EditTextPreference
-            android:key="key2"
-            android:title="EditText Preference"
-            android:summary="EditText Summary"
-            android:dialogMessage="Dialog Message"
-            android:defaultValue="Default value" />
-        <android.support.v7.preference.CheckBoxPreference
-            android:key="key3"
-            android:title="CheckBox Preference"
-            android:summary="CheckBox Summary"
-            android:defaultValue="true"/>
     </android.support.v7.preference.PreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>
