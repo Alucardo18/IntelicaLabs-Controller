@@ -264,6 +264,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.FORWARDS.toString())
                         .withRectangleShape()
+                        .setTitleText("ADELANTE")
                         .build()
         );
         sequence.addSequenceItem(
@@ -273,6 +274,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.BACKWARDS.toString())
                         .withRectangleShape()
+                        .setTitleText("ATRAS")
                         .build()
         );
         sequence.addSequenceItem(
@@ -282,6 +284,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.ROTATE_RIGHT.toString())
                         .withRectangleShape()
+                        .setTitleText("DERECHA")
                         .build()
         );
         sequence.addSequenceItem(
@@ -291,6 +294,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.ROTATE_LEFT.toString())
                         .withRectangleShape()
+                        .setTitleText("IZQUIERDA")
                         .build()
         );
         sequence.addSequenceItem(
@@ -300,6 +304,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.BATTLE.toString())
                         .withRectangleShape()
+                        .setTitleText("MODO BATALLA")
                         .build()
         );
         sequence.addSequenceItem(
@@ -309,6 +314,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.LINE.toString())
                         .withRectangleShape()
+                        .setTitleText("MODO SEGUIDOR")
                         .build()
         );
         sequence.addSequenceItem(
@@ -318,6 +324,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.RANGER.toString())
                         .withRectangleShape()
+                        .setTitleText("MODO EXPLORADOR")
                         .build()
         );
         sequence.addSequenceItem(
@@ -327,6 +334,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.COLOR_MIXER.toString())
                         .withRectangleShape()
+                        .setTitleText("COLOR MIXER")
                         .build()
         );
         sequence.addSequenceItem(
@@ -336,6 +344,7 @@ public class BotController extends AppCompatActivity {
                         .setDismissOnTouch(true)
                         .setContentText(BotControllerHelpMessages.HONK.toString())
                         .withRectangleShape()
+                        .setTitleText("BUZZER")
                         .build()
         );
 

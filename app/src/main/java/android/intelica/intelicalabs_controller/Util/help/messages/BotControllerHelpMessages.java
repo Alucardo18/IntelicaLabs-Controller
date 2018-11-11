@@ -1,55 +1,55 @@
 package android.intelica.intelicalabs_controller.Util.help.messages;
 
 public enum BotControllerHelpMessages {
-    FORWARDS{
+    FORWARDS {
         @Override
         public String toString() {
-            return "Mueve para adelante";
+            return "Manten presionado para mover el robot hacia adelante";
         }
     },
-    BACKWARDS{
+    BACKWARDS {
         @Override
         public String toString() {
-            return "Mueve para atrás";
+            return "Manten presionado para mover el robot hacia atrás";
         }
     },
-    ROTATE_LEFT{
+    ROTATE_LEFT {
         @Override
         public String toString() {
-            return "Rota a la izquierda";
+            return "Manten presionado para rotar el robot hacia la izquierda";
         }
     },
-    ROTATE_RIGHT{
+    ROTATE_RIGHT {
         @Override
         public String toString() {
-            return "Rota a la derecha";
+            return "Manten presionado para rotar el robot hacia la derecha";
         }
     },
-    BATTLE{
+    BATTLE {
         @Override
         public String toString() {
-            return "Modo batalla, hace que...";
+            return "Al presionar esta funcion el robot entra en modo de batalla autonomo\neste buscara el objetivo mas cercano para atacarlo";
         }
     },
-    LINE{
+    LINE {
         @Override
         public String toString() {
-            return "Modo seguidor de lineas, hace que...";
+            return "Al presionar esta funcion el robot entra en modo de seguidor de linea autonomo\neste seguira una linea usando los sensores inferiores";
         }
     },
-    RANGER{
+    RANGER {
         @Override
         public String toString() {
-            return "Modo ranger, hace que...";
+            return "Al presionar esta funcion el robot entra en modo explorador autonomo\neste esquivara los obstaculos que se le presenten ";
         }
     },
-    COLOR_MIXER{
+    COLOR_MIXER {
         @Override
         public String toString() {
-            return "Color mixer";
+            return "Al acceder al menu de \"Color Mixer\".\npodras elegir el color de iluminacion LED de tu robot";
         }
     },
-    HONK{
+    HONK {
         @Override
         public String toString() {
             return "Toca un sonidito";
