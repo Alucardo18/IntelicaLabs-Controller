@@ -31,6 +31,7 @@ public class BotController extends AppCompatActivity {
     private Button backwards;
     private Button rightRotation;
     private Button leftRotation;
+    private TextView textViewMode;
     private Button battle;
     private Button line;
     private Button colorMixer;
@@ -71,6 +72,7 @@ public class BotController extends AppCompatActivity {
         this.colorMixer = (Button) findViewById(R.id.buttonColorMixer);
         this.honk = (Button) findViewById(R.id.buttonHonk);
         this.ranger = (Button) findViewById(R.id.buttonRanger);
+        this.textViewMode = (TextView) findViewById(R.id.textViewMode);
 
         this.setupUiListeners();
     }
@@ -185,77 +187,63 @@ public class BotController extends AppCompatActivity {
         });
 
         //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
-        final TextView textViewMode = (TextView) findViewById(R.id.textViewMode);
-
-        battle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bluetoothSocket != null) {
-                    textViewMode.setText(StaticMessage.BATTLE);
-                    textViewMode.setTextColor(getColor(R.color.colorPrimary));
-                    bluetoothOutput.write("%BATTLE" + "\n");
-                    Toast.makeText(BotController.this, StaticMessage.BATTLE_ON, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
-
-        this.ranger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bluetoothSocket != null) {
-                    textViewMode.setText(StaticMessage.RANGER);
-                    textViewMode.setTextColor(getColor(R.color.colorPrimary));
-                    bluetoothOutput.write("%RANGER" + "\n");
-                    Toast.makeText(BotController.this, StaticMessage.RANGER_ON, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        line.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bluetoothSocket != null) {
-                    textViewMode.setText(StaticMessage.LINE);
-                    textViewMode.setTextColor(getColor(R.color.colorPrimary));
-                    bluetoothOutput.write("%LINE" + "\n");
-                    Toast.makeText(BotController.this, StaticMessage.LINE_ON, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        this.colorMixer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent color = new Intent(BotController.this, ColorMixer.class);
-                startActivity(color);
-            }
-        });
-
-        this.honk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bluetoothSocket != null) {
-                    bluetoothOutput.write("%HONK" + "\n");
-
-                } else {
-                    Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
     public void back(View view){
 
         finish();
+    }
+
+    public void battle(View view){
+
+        if (bluetoothSocket != null) {
+            textViewMode.setText(StaticMessage.BATTLE);
+            textViewMode.setTextColor(getColor(R.color.colorPrimary));
+            bluetoothOutput.write("%BATTLE" + "\n");
+            Toast.makeText(BotController.this, StaticMessage.BATTLE_ON, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void ranger(View view){
+
+        if (bluetoothSocket != null) {
+            textViewMode.setText(StaticMessage.RANGER);
+            textViewMode.setTextColor(getColor(R.color.colorPrimary));
+            bluetoothOutput.write("%RANGER" + "\n");
+            Toast.makeText(BotController.this, StaticMessage.RANGER_ON, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void line(View view){
+
+        if (bluetoothSocket != null) {
+            textViewMode.setText(StaticMessage.LINE);
+            textViewMode.setTextColor(getColor(R.color.colorPrimary));
+            bluetoothOutput.write("%LINE" + "\n");
+            Toast.makeText(BotController.this, StaticMessage.LINE_ON, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void colorMixer(View view){
+
+        Intent color = new Intent(BotController.this, ColorMixer.class);
+        startActivity(color);
+    }
+
+    public void honk(View view){
+
+        if (bluetoothSocket != null) {
+            bluetoothOutput.write("%HONK" + "\n");
+
+        } else {
+            Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void help(View view){
