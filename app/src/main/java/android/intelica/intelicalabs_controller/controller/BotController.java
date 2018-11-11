@@ -2,12 +2,14 @@ package android.intelica.intelicalabs_controller.controller;
 
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
 import android.intelica.intelicalabs_controller.Util.help.messages.BotControllerHelpMessages;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +40,7 @@ public class BotController extends AppCompatActivity {
     private Button honk;
     private Button ranger;
 
+    private SharedPreferences controllerSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class BotController extends AppCompatActivity {
         this.honk = (Button) findViewById(R.id.buttonHonk);
         this.ranger = (Button) findViewById(R.id.buttonRanger);
         this.textViewMode = (TextView) findViewById(R.id.textViewMode);
+        this.controllerSettings = PreferenceManager.getDefaultSharedPreferences(this);
 
         this.setupUiListeners();
     }
@@ -86,11 +90,11 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         forwards.setBackgroundResource(R.drawable.arriba_pressed);
-                        bluetoothOutput.write("%FORWARD" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("forwards", "FORWARD") + "\n");
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         forwards.setBackgroundResource(R.drawable.arriba);
-                        bluetoothOutput.write("%STOP" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("stop", "STOP") + "\n");
                     }
                 } else {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -113,11 +117,11 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         backwards.setBackgroundResource(R.drawable.abajo_pressed);
-                        bluetoothOutput.write("%BACKWARD" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("backwards", "BACKWARD") + "\n");
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         backwards.setBackgroundResource(R.drawable.abajo);
-                        bluetoothOutput.write("%STOP" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("stop", "STOP") + "\n");
                     }
 
                 } else {
@@ -139,11 +143,11 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         rightRotation.setBackgroundResource(R.drawable.derecha_pressed);
-                        bluetoothOutput.write("%RIGHT" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("clockwise", "RIGHT") + "\n");
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         rightRotation.setBackgroundResource(R.drawable.derecha);
-                        bluetoothOutput.write("%STOP" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("stop", "STOP") + "\n");
                     }
 
                 } else {
@@ -165,11 +169,11 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         leftRotation.setBackgroundResource(R.drawable.izquierda_pressed);
-                        bluetoothOutput.write("%LEFT" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("counter_clockwise", "LEFT") + "\n");
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         leftRotation.setBackgroundResource(R.drawable.izquierda);
-                        bluetoothOutput.write("%STOP" + "\n");
+                        bluetoothOutput.write("%" + controllerSettings.getString("stop", "STOP") + "\n");
                     }
 
                 } else {
@@ -199,7 +203,7 @@ public class BotController extends AppCompatActivity {
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.BATTLE);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%BATTLE" + "\n");
+            bluetoothOutput.write("%" + controllerSettings.getString("battle", "BATTLE") + "\n");
             Toast.makeText(BotController.this, StaticMessage.BATTLE_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
@@ -211,7 +215,7 @@ public class BotController extends AppCompatActivity {
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.RANGER);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%RANGER" + "\n");
+            bluetoothOutput.write("%" + controllerSettings.getString("ranger", "RANGER") + "\n");
             Toast.makeText(BotController.this, StaticMessage.RANGER_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
@@ -223,7 +227,7 @@ public class BotController extends AppCompatActivity {
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.LINE);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%LINE" + "\n");
+            bluetoothOutput.write("%" + controllerSettings.getString("line", "LINE") + "\n");
             Toast.makeText(BotController.this, StaticMessage.LINE_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
@@ -239,7 +243,7 @@ public class BotController extends AppCompatActivity {
     public void honk(View view){
 
         if (bluetoothSocket != null) {
-            bluetoothOutput.write("%HONK" + "\n");
+            bluetoothOutput.write("%" + controllerSettings.getString("honk", "HONK") + "\n");
 
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();

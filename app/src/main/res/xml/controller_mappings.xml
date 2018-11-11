@@ -5,6 +5,7 @@
     <android.support.v7.preference.PreferenceCategory
         android:title="Mensajes del control">
 
+        <!-- Movement Control -->
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="forwards"
             android:title="Adelante"
@@ -29,6 +30,40 @@
             android:summary="Mensaje bluetooth para rotar hacia la izquierda"
             android:dialogMessage=""
             android:defaultValue="LEFT" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="stop"
+            android:title="Mensaje de freno"
+            android:summary="Mensaje bluetooth para hacer que el robot deje de moverse"
+            android:dialogMessage=""
+            android:defaultValue="STOP" />
+
+        <!-- Modes -->
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="battle"
+            android:title="Battle Mode"
+            android:summary="Mensaje bluetooth para activar el modo 1 (battle)"
+            android:dialogMessage=""
+            android:defaultValue="BATTLE" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="line"
+            android:title="Line Mode"
+            android:summary="Mensaje bluetooth para activar el modo 2 (line)"
+            android:dialogMessage=""
+            android:defaultValue="LINE" />
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="ranger"
+            android:title="Ranger Mode"
+            android:summary="Mensaje bluetooth para activar el modo 3 (ranger)"
+            android:dialogMessage=""
+            android:defaultValue="RANGER" />
+
+        <!-- Sound -->
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="honk"
+            android:title="Bocina"
+            android:summary="Mensaje bluetooth para tocar la bocina del robot"
+            android:dialogMessage=""
+            android:defaultValue="HONK" />
 
     </android.support.v7.preference.PreferenceCategory>
 
