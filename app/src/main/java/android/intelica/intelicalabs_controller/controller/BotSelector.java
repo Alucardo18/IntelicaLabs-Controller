@@ -39,10 +39,6 @@ public class BotSelector extends AppCompatActivity {
     private Set<BluetoothDevice> pairedDevices;
 
     private ListView listView;
-    private Button listRobots;
-    private Button disconnect;
-    Button startController;
-
 
 //TODO: convert MainActivityLayout into Landscape layout
 
@@ -86,30 +82,8 @@ public class BotSelector extends AppCompatActivity {
         }
     }
 
+
     private void setupUiListeners(){
-
-        listRobots = (Button) findViewById(R.id.listRobots);
-        listRobots.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listPairedDevices();
-            }
-        });
-
-        disconnect = (Button) findViewById(R.id.buttonRelease);
-        disconnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (BluetoothConnection.getInstance().getBluetoothSocket() != null) {
-                    BluetoothConnector connectThread = new BluetoothConnector();
-                    connectThread.cancel();
-                } else {
-                    Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
 
         listView = (ListView) findViewById(R.id.listViewPaired);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -124,22 +98,15 @@ public class BotSelector extends AppCompatActivity {
 
             }
         });
-
-        startController = (Button) findViewById(R.id.gameController);
-        startController.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent controller = new Intent(BotSelector.this, BotController.class);
-                startActivity(controller);
-            }
-        });
     }
+
 
     private void turnOnBluetooth() {
 
         Intent requestBluetoothOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         this.startActivityForResult(requestBluetoothOn, REQUEST_CODE_BLUETOOTH_ON);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -154,6 +121,7 @@ public class BotSelector extends AppCompatActivity {
         }
 
     }
+
 
     private void listPairedDevices() {
         if (BluetoothManager.isBluetoothEnable()) {
@@ -176,6 +144,7 @@ public class BotSelector extends AppCompatActivity {
 
     }
 
+
     public void help(View view){
 
         MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this);
@@ -185,12 +154,12 @@ public class BotSelector extends AppCompatActivity {
 
         sequence.addSequenceItem(
                 new MaterialShowcaseView.Builder(this)
-                        .setTarget(this.listRobots)
+                        .setTarget(findViewById(R.id.listRobots))
                         .setDismissText("")
                         .setDismissOnTouch(true)
                         .setContentText(BotSelectorHelpMessages.FILL_ROBOT_LIST.toString())
                         .withRectangleShape()
-                        .setTitleText("CONECTAR CON EL ROBOT")
+                        .setTitleText("LISTAR LOS ROBOTS")
                         .build()
         );
         sequence.addSequenceItem(
@@ -205,7 +174,7 @@ public class BotSelector extends AppCompatActivity {
         );
         sequence.addSequenceItem(
                 new MaterialShowcaseView.Builder(this)
-                        .setTarget(this.startController)
+                        .setTarget(findViewById(R.id.gameController))
                         .setDismissText("")
                         .setDismissOnTouch(true)
                         .setContentText(BotSelectorHelpMessages.START_CONTROLLER.toString())
@@ -215,7 +184,7 @@ public class BotSelector extends AppCompatActivity {
         );
         sequence.addSequenceItem(
                 new MaterialShowcaseView.Builder(this)
-                        .setTarget(this.disconnect)
+                        .setTarget(findViewById(R.id.disconnectRobot))
                         .setDismissText("")
                         .setDismissOnTouch(true)
                         .setContentText(BotSelectorHelpMessages.DISCONNECT.toString())
@@ -226,6 +195,29 @@ public class BotSelector extends AppCompatActivity {
 
         sequence.start();
 
+    }
+
+
+    public void listDevices(View view){
+
+        listPairedDevices();
+    }
+
+    public void disconnect(View view){
+
+        if (BluetoothConnection.getInstance().getBluetoothSocket() != null) {
+            BluetoothConnector connectThread = new BluetoothConnector();
+            connectThread.cancel();
+        } else {
+            Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    public void startBotController(View view){
+
+        Intent controller = new Intent(BotSelector.this, BotController.class);
+        startActivity(controller);
     }
 
 }
