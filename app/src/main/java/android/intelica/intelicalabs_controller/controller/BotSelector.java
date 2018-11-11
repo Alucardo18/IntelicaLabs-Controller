@@ -7,6 +7,8 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothManager;
+import android.intelica.intelicalabs_controller.Util.help.messages.BotControllerHelpMessages;
+import android.intelica.intelicalabs_controller.Util.help.messages.BotSelectorHelpMessages;
 import android.intelica.intelicalabs_controller.view.BluetoothDevicesList;
 import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.StaticMessage;
@@ -26,12 +28,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
+
 
 public class BotSelector extends AppCompatActivity {
 
     private static final int REQUEST_CODE_BLUETOOTH_ON = 1313;
     private Set<BluetoothDevice> pairedDevices;
+
     private ListView listView;
+    private Button listRobots;
+    private Button disconnect;
+    Button startController;
+
 
 //TODO: convert MainActivityLayout into Landscape layout
 
@@ -77,15 +88,15 @@ public class BotSelector extends AppCompatActivity {
 
     private void setupUiListeners(){
 
-        Button connect = (Button) findViewById(R.id.buttonConnect);
-        connect.setOnClickListener(new View.OnClickListener() {
+        listRobots = (Button) findViewById(R.id.listRobots);
+        listRobots.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listPairedDevices();
             }
         });
 
-        Button disconnect = (Button) findViewById(R.id.buttonRelease);
+        disconnect = (Button) findViewById(R.id.buttonRelease);
         disconnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,8 +125,8 @@ public class BotSelector extends AppCompatActivity {
             }
         });
 
-        Button controller = (Button) findViewById(R.id.gameController);
-        controller.setOnClickListener(new View.OnClickListener() {
+        startController = (Button) findViewById(R.id.gameController);
+        startController.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent controller = new Intent(BotSelector.this, BotController.class);
@@ -162,6 +173,58 @@ public class BotSelector extends AppCompatActivity {
         } else {
             Toast.makeText(BotSelector.this, StaticMessage.BT_NOT_ENABLE, Toast.LENGTH_LONG).show();
         }
+
+    }
+
+    public void help(View view){
+
+        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this);
+        ShowcaseConfig config = new ShowcaseConfig();
+        config.setDelay(500); // half second between each showcase view
+        sequence.setConfig(config);
+
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.listRobots)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotSelectorHelpMessages.FILL_ROBOT_LIST.toString())
+                        .withRectangleShape()
+                        .setTitleText("CONECTAR CON EL ROBOT")
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(findViewById(R.id.deviceListTitle))
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotSelectorHelpMessages.ROBOT_LIST.toString())
+                        .withRectangleShape()
+                        .setTitleText("LISTA DE DISPOSITIVOS")
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.startController)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotSelectorHelpMessages.START_CONTROLLER.toString())
+                        .withRectangleShape()
+                        .setTitleText("INICIAR EL CONTROLADOR")
+                        .build()
+        );
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(this.disconnect)
+                        .setDismissText("")
+                        .setDismissOnTouch(true)
+                        .setContentText(BotSelectorHelpMessages.DISCONNECT.toString())
+                        .withRectangleShape()
+                        .setTitleText("DESCONECTAR EL ROBOT")
+                        .build()
+        );
+
+        sequence.start();
 
     }
 
