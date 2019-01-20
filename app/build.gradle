@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
@@ -33,4 +34,8 @@ dependencies {
     compile 'com.github.deano2390:MaterialShowcaseView:1.2.0'
     compile 'com.larswerkman:HoloColorPicker:1.5'
     testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
