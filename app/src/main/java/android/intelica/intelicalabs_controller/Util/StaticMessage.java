@@ -16,4 +16,6 @@ public class StaticMessage {
     public static String RANGER_ON ="MODO RANGER ACTIVADO";
     public static String BATTLE_ON ="MODO BATTLE ACTIVADO";
     public static String LINE_ON ="MODO SEGUIDOR DE LINEA ACTIVADO";
+
+    public static String HELP_DISMISS = "GOT IT";
 }

@@ -12,16 +12,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.Launcher">
+        <activity android:name=".controller.BotSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BotController" />
-        <activity android:name=".ColorMixer"></activity>
+        <activity android:name=".controller.BotController" />
+        <activity android:name=".controller.ColorMixer"/>
+        <activity android:name=".controller.ControllerSettings"/>
     </application>
 
 </manifest>

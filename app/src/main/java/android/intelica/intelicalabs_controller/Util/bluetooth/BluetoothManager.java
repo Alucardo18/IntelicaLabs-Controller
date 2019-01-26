@@ -1,4 +1,4 @@
-package android.intelica.intelicalabs_controller;
+package android.intelica.intelicalabs_controller.Util.bluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
