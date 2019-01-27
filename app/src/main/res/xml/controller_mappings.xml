@@ -65,6 +65,21 @@
             android:dialogMessage=""
             android:defaultValue="HONK" />
 
+        <!--Indicators-->
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="start_char"
+            android:title="Caracter de inicio"
+            android:summary="Caracter que inidica el inicio de un mensaje bluetooth"
+            android:dialogMessage=""
+            android:defaultValue="%" />
+
+        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+            android:key="end_char"
+            android:title="Caracter de terminación"
+            android:summary="Caracter que inidica el final de un mensaje bluetooth"
+            android:dialogMessage=""
+            android:defaultValue="\n" />
+
     </android.support.v7.preference.PreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>
