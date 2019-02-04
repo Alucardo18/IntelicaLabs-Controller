@@ -82,4 +82,9 @@
 
     </android.support.v7.preference.PreferenceCategory>
 
+    <android.intelica.intelicalabs_controller.controller.fragments.CustomPreference
+        android:title="Sobre el proyecto"
+        android:key="about_button"
+        android:summary="Aprende sobre el proyecto y como ayudarnos"/>
+
 </android.support.v7.preference.PreferenceScreen>
