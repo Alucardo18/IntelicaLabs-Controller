@@ -149,4 +149,30 @@
         fancy:fb_textColor="#FFFFFF"
         fancy:layout_constraintEnd_toEndOf="parent"
         fancy:layout_constraintTop_toBottomOf="@+id/fifthButton" />
+
+    <TextView
+        android:id="@+id/donationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/DonationTitle"
+        android:textColor="#ffff"
+        android:textSize="24sp"
+        android:theme="@style/TextAppearance.AppCompat.Inverse"
+        fancy:layout_constraintStart_toStartOf="parent"
+        fancy:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/donationContent"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/DonationContent"
+        android:textColor="#ffff"
+        android:textSize="14sp"
+        android:theme="@style/TextAppearance.AppCompat.Inverse"
+        fancy:layout_constraintStart_toStartOf="parent"
+        fancy:layout_constraintTop_toBottomOf="@+id/donationTitle" />
 </android.support.constraint.ConstraintLayout>
