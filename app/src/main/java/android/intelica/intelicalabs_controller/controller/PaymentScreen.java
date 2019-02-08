@@ -28,5 +28,23 @@ public class PaymentScreen extends AppCompatActivity {
             }
         });
 
+
+
+
     }
+
+
+
+    public void paymentAmount(){
+    findViewById(R.id.firstButton).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(),"GRACIAS POR SU COMPRA!",Toast.LENGTH_SHORT).show();
+            v.setEnabled(false);
+        }
+    });
+
+    }
+
+
 }

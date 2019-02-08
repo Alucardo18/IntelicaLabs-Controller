@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Launcher">
-        <activity android:name=".controller.PaymentScreen">
+        <activity android:name=".controller.BotSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,7 @@
         <activity android:name=".controller.BotController" />
         <activity android:name=".controller.ColorMixer" />
         <activity android:name=".controller.ControllerSettings" />
+        <activity android:name=".controller.PaymentScreen" />
     </application>
 
 </manifest>
