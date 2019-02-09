@@ -19,30 +19,81 @@ public class PaymentScreen extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+        this.paymentAmount();
 
         findViewById(R.id.contactButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"has presionado el boton",Toast.LENGTH_SHORT).show();
-
+                // we might need a general email or any other point of contact for users
+                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
+        findViewById(R.id.restoreButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // implement Restore purchase method from in-App Billing API 3
+                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.shareButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get Facebook integrated along with the app
+                // https://developers.facebook.com/docs/sharing/android/
+                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.reviewButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // this requires the application to be already in the google play store
+                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
 
+    public void paymentAmount() {
+        findViewById(R.id.firstButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                v.setEnabled(false);
+            }
+        });
 
-    public void paymentAmount(){
-    findViewById(R.id.firstButton).setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(v.getContext(),"GRACIAS POR SU COMPRA!",Toast.LENGTH_SHORT).show();
-            v.setEnabled(false);
-        }
-    });
+        findViewById(R.id.secondButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                view.setEnabled(false);
+            }
+        });
+
+        findViewById(R.id.thirdButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                view.setEnabled(false);
+            }
+        });
+
+        findViewById(R.id.fourthButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                view.setEnabled(false);
+            }
+        });
+
+        findViewById(R.id.fifthButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                view.setEnabled(false);
+            }
+        });
 
     }
 
