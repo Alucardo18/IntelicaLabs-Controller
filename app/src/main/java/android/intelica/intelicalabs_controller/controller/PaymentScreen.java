@@ -1,5 +1,6 @@
 package android.intelica.intelicalabs_controller.controller;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.R;
 import android.support.v7.app.ActionBar;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 public class PaymentScreen extends AppCompatActivity {
 
+    private Intent emailIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +22,14 @@ public class PaymentScreen extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+
         this.paymentAmount();
 
         findViewById(R.id.contactButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // we might need a general email or any other point of contact for users
-                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+                sendEmail();
             }
         });
         findViewById(R.id.restoreButton).setOnClickListener(new View.OnClickListener() {
@@ -97,5 +101,20 @@ public class PaymentScreen extends AppCompatActivity {
 
     }
 
+    protected void sendEmail() {
+
+        String TO = "emanuel246@gmail.com";
+        String CC = "";
+
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{ TO});
+        //email.putExtra(Intent.EXTRA_CC, new String[]{ CC});
+        email.putExtra(Intent.EXTRA_SUBJECT, "INSERTA TU TITULO AQUI");
+        email.putExtra(Intent.EXTRA_TEXT, "INSERTA TU SUGERENCIA AQUI");
+        //need this to prompts email client only
+        email.setType("message/rfc822");
+        startActivity(Intent.createChooser(email, "ESCOGE TU CORREO DE PREFERENCIA"));
+
+    }
 
 }
