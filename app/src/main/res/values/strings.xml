@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IntelicaLabs-Controller</string>
+    <string name="app_name">InteliBot</string>
 
     <string name="title_activity_game_controller">GameController</string>
     <string name="dummy_button">Dummy Button</string>
