@@ -7,7 +7,6 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.Util.bluetooth.BluetoothManager;
-import android.intelica.intelicalabs_controller.Util.help.messages.BotControllerHelpMessages;
 import android.intelica.intelicalabs_controller.Util.help.messages.BotSelectorHelpMessages;
 import android.intelica.intelicalabs_controller.view.BluetoothDevicesList;
 import android.intelica.intelicalabs_controller.R;
@@ -20,7 +19,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,7 +45,7 @@ public class BotSelector extends AppCompatActivity {
 
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.bot_selector);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

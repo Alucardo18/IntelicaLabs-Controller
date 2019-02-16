@@ -99,7 +99,7 @@ public class ColorMixer extends AppCompatActivity {
         int R = (color >> 16) & 0xff;
         int G = (color >> 8) & 0xff;
         int B = (color) & 0xff;
-        textColorValue.setText("#RGB" + R + "," + G + "," + B + ",");
+        textColorValue.setText("Valor enviado: #RGB" + R + "," + G + "," + B + ",\\n");
         if (bluetoothSocket != null) {
             bluetoothOutput.write("#RGB" + R + "," + G + "," + B + "," + "\n");
         }

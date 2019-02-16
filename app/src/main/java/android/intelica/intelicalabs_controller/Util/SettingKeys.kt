@@ -15,4 +15,8 @@ val ranger = SettingKey("ranger", "RANGER")
 //Sound
 val honk = SettingKey("honk", "HONK")
 
+//Indicators
+val startIndicator = SettingKey("start_char", "%")
+val stopIndicator = SettingKey("stop_char", "\n")
+
 data class SettingKey(val key: String, val default: String)

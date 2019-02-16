@@ -83,7 +83,7 @@ public class BotController extends AppCompatActivity {
         this.setupUiListeners();
     }
 
-    private void setupUiListeners(){
+    private void setupUiListeners() {
 
         this.forwards.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -92,15 +92,18 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         forwards.setBackgroundResource(R.drawable.arriba_pressed);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getForward().getKey(), SettingKeysKt.getForward().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getForward().getKey(), SettingKeysKt.getForward().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         forwards.setBackgroundResource(R.drawable.arriba);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
                     }
                 } else {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -123,15 +126,19 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         backwards.setBackgroundResource(R.drawable.abajo_pressed);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getBackward().getKey(), SettingKeysKt.getBackward().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getBackward().getKey(), SettingKeysKt.getBackward().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         backwards.setBackgroundResource(R.drawable.abajo);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
                     }
 
                 } else {
@@ -153,15 +160,17 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         rightRotation.setBackgroundResource(R.drawable.derecha_pressed);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getClockwise().getKey(), SettingKeysKt.getClockwise().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getClockwise().getKey(), SettingKeysKt.getClockwise().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         rightRotation.setBackgroundResource(R.drawable.derecha);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
                     }
 
                 } else {
@@ -183,15 +192,18 @@ public class BotController extends AppCompatActivity {
 
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         leftRotation.setBackgroundResource(R.drawable.izquierda_pressed);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getCounterClockwise().getKey(), SettingKeysKt.getCounterClockwise().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getCounterClockwise().getKey(), SettingKeysKt.getCounterClockwise().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         leftRotation.setBackgroundResource(R.drawable.izquierda);
-                        bluetoothOutput.write("%" + controllerSettings.getString(
-                                SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()
-                        ) + "\n");
+                        bluetoothOutput.write(
+                                controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStop().getKey(), SettingKeysKt.getStop().getDefault()) +
+                                        controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
                     }
 
                 } else {
@@ -211,72 +223,80 @@ public class BotController extends AppCompatActivity {
         //TODO: CHANGE TOAST MESSAGE FOR AN ALERTDIALOG BOX INCLUDE IMAGE OF BATTLE/ RANGER / FOLLOWER
     }
 
-    public void back(View view){
+    public void back(View view) {
 
         finish();
     }
 
-    public void battle(View view){
+    public void battle(View view) {
 
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.BATTLE);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%" + controllerSettings.getString(
-                    SettingKeysKt.getBattle().getKey(), SettingKeysKt.getBattle().getDefault()
-            ) + "\n");
+            bluetoothOutput.write(
+                    controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getBattle().getKey(), SettingKeysKt.getBattle().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
             Toast.makeText(BotController.this, StaticMessage.BATTLE_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void ranger(View view){
+    public void ranger(View view) {
 
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.RANGER);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%" + controllerSettings.getString(
-                    SettingKeysKt.getRanger().getKey(), SettingKeysKt.getRanger().getDefault()
-            ) + "\n");
+            bluetoothOutput.write(
+                    controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getRanger().getKey(), SettingKeysKt.getRanger().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
             Toast.makeText(BotController.this, StaticMessage.RANGER_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void line(View view){
+    public void line(View view) {
 
         if (bluetoothSocket != null) {
             textViewMode.setText(StaticMessage.LINE);
             textViewMode.setTextColor(getColor(R.color.colorPrimary));
-            bluetoothOutput.write("%" + controllerSettings.getString(
-                    SettingKeysKt.getLine().getKey(), SettingKeysKt.getLine().getDefault()
-            ) + "\n");
+            bluetoothOutput.write(
+                    controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getLine().getKey(), SettingKeysKt.getLine().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
             Toast.makeText(BotController.this, StaticMessage.LINE_ON, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void colorMixer(View view){
+    public void colorMixer(View view) {
 
         Intent color = new Intent(BotController.this, ColorMixer.class);
         startActivity(color);
     }
 
-    public void honk(View view){
+    public void honk(View view) {
 
         if (bluetoothSocket != null) {
-            bluetoothOutput.write("%" + controllerSettings.getString(
-                    SettingKeysKt.getHonk().getKey(), SettingKeysKt.getHonk().getDefault()
-            ) + "\n");
+            bluetoothOutput.write(
+                    controllerSettings.getString(SettingKeysKt.getStartIndicator().getKey(), SettingKeysKt.getStartIndicator().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getHonk().getKey(), SettingKeysKt.getHonk().getDefault()) +
+                            controllerSettings.getString(SettingKeysKt.getStopIndicator().getKey(), SettingKeysKt.getStopIndicator().getDefault()));
+
 
         } else {
             Toast.makeText(BotController.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void help(View view){
+    public void help(View view) {
 
         MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this);
         ShowcaseConfig config = new ShowcaseConfig();
@@ -378,9 +398,9 @@ public class BotController extends AppCompatActivity {
 
     }
 
-     public void openSettings(View view){
+    public void openSettings(View view) {
 
-         Intent color = new Intent(BotController.this, ControllerSettings.class);
-         startActivity(color);
-     }
+        Intent color = new Intent(BotController.this, ControllerSettings.class);
+        startActivity(color);
+    }
 }
