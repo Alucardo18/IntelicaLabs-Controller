@@ -103,7 +103,7 @@ public class PaymentScreen extends AppCompatActivity {
 
     protected void sendEmail() {
 
-        String TO = "emanuel246@gmail.com";
+        String TO = "emanuel2464@gmail.com";
         String CC = "";
 
         Intent email = new Intent(Intent.ACTION_SEND);
