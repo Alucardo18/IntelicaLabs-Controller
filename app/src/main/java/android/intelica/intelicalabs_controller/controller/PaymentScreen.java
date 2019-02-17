@@ -3,15 +3,21 @@ package android.intelica.intelicalabs_controller.controller;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.R;
+import android.intelica.intelicalabs_controller.Util.StaticMessage;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class PaymentScreen extends AppCompatActivity {
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
 
-    private Intent emailIntent;
+public class PaymentScreen extends AppCompatActivity implements BillingProcessor.IBillingHandler {
+
+    private BillingProcessor billingProcessor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,9 @@ public class PaymentScreen extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+
+        billingProcessor = new BillingProcessor(this, "YOUR LICENSE KEY FROM GOOGLE PLAY CONSOLE HERE", this);
+        billingProcessor.initialize();
 
         this.paymentAmount();
 
@@ -37,6 +46,7 @@ public class PaymentScreen extends AppCompatActivity {
             public void onClick(View view) {
                 // implement Restore purchase method from in-App Billing API 3
                 Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+                billingProcessor.loadOwnedPurchasesFromGoogle();
             }
         });
         findViewById(R.id.shareButton).setOnClickListener(new View.OnClickListener() {
@@ -62,15 +72,16 @@ public class PaymentScreen extends AppCompatActivity {
         findViewById(R.id.firstButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+
                 v.setEnabled(false);
+                billingProcessor.purchase(PaymentScreen.this,"android.test.purchased");
             }
         });
 
         findViewById(R.id.secondButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                billingProcessor.purchase(PaymentScreen.this, StaticMessage.PRODUCT_TWO);
                 view.setEnabled(false);
             }
         });
@@ -78,7 +89,7 @@ public class PaymentScreen extends AppCompatActivity {
         findViewById(R.id.thirdButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                billingProcessor.purchase(PaymentScreen.this, StaticMessage.PRODUCT_THREE);
                 view.setEnabled(false);
             }
         });
@@ -86,7 +97,7 @@ public class PaymentScreen extends AppCompatActivity {
         findViewById(R.id.fourthButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                billingProcessor.purchase(PaymentScreen.this, StaticMessage.PRODUCT_FOUR);
                 view.setEnabled(false);
             }
         });
@@ -94,7 +105,7 @@ public class PaymentScreen extends AppCompatActivity {
         findViewById(R.id.fifthButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+                billingProcessor.purchase(PaymentScreen.this, StaticMessage.PRODUCT_FIVE);
                 view.setEnabled(false);
             }
         });
@@ -117,4 +128,39 @@ public class PaymentScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+        Toast.makeText(this, "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onPurchaseHistoryRestored() {
+
+    }
+
+    @Override
+    public void onBillingError(int errorCode, @Nullable Throwable error) {
+
+    }
+
+    @Override
+    public void onBillingInitialized() {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!billingProcessor.handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (billingProcessor != null) {
+            billingProcessor.release();
+        }
+        super.onDestroy();
+    }
 }
