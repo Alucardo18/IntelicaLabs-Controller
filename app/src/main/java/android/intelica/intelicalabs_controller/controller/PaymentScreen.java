@@ -1,9 +1,11 @@
 package android.intelica.intelicalabs_controller.controller;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.GoogleConsole;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -78,8 +80,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         findViewById(R.id.reviewButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // this requires the application to be already in the google play store
-                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+             playStoreReview();
             }
         });
 
@@ -200,6 +201,22 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             billingProcessor.release();
         }
         super.onDestroy();
+    }
+
+    public void playStoreReview(){
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        // To count with Play market backstack, After pressing back button,
+        // to taken back to our application, we need to add following flags to intent.
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+        }
     }
 
 }
