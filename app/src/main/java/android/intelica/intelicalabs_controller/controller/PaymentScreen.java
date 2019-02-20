@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mehdi.sakout.fancybuttons.FancyButton;
 
 import static android.intelica.intelicalabs_controller.Util.GoogleConsole.*;
@@ -41,6 +44,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             actionBar.hide();
         }
 
+
         billingProcessor = new BillingProcessor(this, GoogleConsole.applicationId, this);
         billingProcessor.initialize();
 
@@ -50,12 +54,13 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         this.billingBtFour = (FancyButton) findViewById(R.id.fourthButton);
         this.billingBtFive = (FancyButton) findViewById(R.id.fifthButton);
 
+        // LOAD VIEWS AND CHECK PURCHASED STATUS
         this.paymentAmount();
+        this.checkAlreadyPurchasedProducts();
 
         findViewById(R.id.contactButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // we might need a general email or any other point of contact for users
                 sendEmail();
             }
         });
@@ -64,9 +69,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             public void onClick(View view) {
                 // implement Restore purchase method from in-App Billing API 3
                 Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
-//                billingProcessor.loadOwnedPurchasesFromGoogle();
-                billingProcessor.consumePurchase("android.test.purchased");
-
+                billingProcessor.loadOwnedPurchasesFromGoogle();
             }
         });
         findViewById(R.id.shareButton).setOnClickListener(new View.OnClickListener() {
@@ -80,7 +83,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         findViewById(R.id.reviewButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             playStoreReview();
+                playStoreReview();
             }
         });
 
@@ -101,7 +104,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             @Override
             public void onClick(View view) {
                 billingProcessor.purchase(PaymentScreen.this, productTwoId);
-
+                billingProcessor.consumePurchase("android.test.purchased");
             }
         });
 
@@ -147,12 +150,10 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
         Toast.makeText(this, "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
-//        if (billingProcessor.isPurchased(productId)) {
-//            this.billingBtOne.setEnabled(false);
-//        }
+
 
         switch (productId) {
-            case GoogleConsole.productOneId :
+            case "android.test.purchased":
                 this.billingBtOne.setEnabled(false);
                 break;
             case GoogleConsole.productTwoId:
@@ -170,22 +171,19 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             default:
                 Toast.makeText(PaymentScreen.this, "productId not found: " + productId, Toast.LENGTH_LONG).show();
         }
-
     }
 
     @Override
     public void onPurchaseHistoryRestored() {
-
     }
 
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
-        Toast.makeText(PaymentScreen.this,"¡SOMETHING WENT WRONG!",Toast.LENGTH_LONG).show();
+        Toast.makeText(PaymentScreen.this, "¡SOMETHING WENT WRONG!", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onBillingInitialized() {
-
     }
 
     @Override
@@ -203,7 +201,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         super.onDestroy();
     }
 
-    public void playStoreReview(){
+    public void playStoreReview() {
         Uri uri = Uri.parse("market://details?id=" + getPackageName());
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         // To count with Play market backstack, After pressing back button,
@@ -219,4 +217,38 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         }
     }
 
+    private void checkAlreadyPurchasedProducts() {
+
+        List<String> products = new ArrayList<>();
+        products.add(GoogleConsole.productOneId);
+        products.add(GoogleConsole.productTwoId);
+        products.add(GoogleConsole.productThreeId);
+        products.add(GoogleConsole.productFourId);
+        products.add(GoogleConsole.productFiveId);
+//        products.add("android.test.purchased");
+
+        for (String id : products) {
+            if (billingProcessor.isPurchased(id)) {
+                switch (id) {
+                    case GoogleConsole.productOneId:
+                        this.billingBtOne.setEnabled(false);
+                        break;
+                    case GoogleConsole.productTwoId:
+                        this.billingBtTwo.setEnabled(false);
+                        break;
+                    case GoogleConsole.productThreeId:
+                        this.billingBtThree.setEnabled(false);
+                        break;
+                    case GoogleConsole.productFourId:
+                        this.billingBtFour.setEnabled(false);
+                        break;
+                    case GoogleConsole.productFiveId:
+                        billingBtFive.setEnabled(false);
+                        break;
+                    default:
+                        Toast.makeText(PaymentScreen.this, "productId not found: " + id, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
 }
