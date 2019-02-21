@@ -19,9 +19,7 @@ public class StaticMessage {
 
     public static String HELP_DISMISS = "GOT IT";
 
-    public static String PRODUCT_ONE = "com.intelica.product.one";
-    public static String PRODUCT_TWO = "com.intelica.product.two";
-    public static String PRODUCT_THREE = "com.intelica.product.three";
-    public static String PRODUCT_FOUR = "com.intelica.product.four";
-    public static String PRODUCT_FIVE = "com.intelica.product.five";
+    public static String FACEBOOK_URL = "https://www.facebook.com/PCB-LAB-547362971973979";
+    public static String FACEBOOK_PAGE_ID = "547362971973979";
+
 }

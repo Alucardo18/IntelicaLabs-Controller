@@ -1,10 +1,13 @@
 package android.intelica.intelicalabs_controller.controller;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.intelica.intelicalabs_controller.R;
 import android.intelica.intelicalabs_controller.Util.GoogleConsole;
+import android.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -77,7 +80,10 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             public void onClick(View view) {
                 // Get Facebook integrated along with the app
                 // https://developers.facebook.com/docs/sharing/android/
-                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+                String facebookUrl = getFacebookPageURL(PaymentScreen.this);
+                facebookIntent.setData(Uri.parse(facebookUrl));
+                startActivity(facebookIntent);
             }
         });
         findViewById(R.id.reviewButton).setOnClickListener(new View.OnClickListener() {
@@ -104,7 +110,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             @Override
             public void onClick(View view) {
                 billingProcessor.purchase(PaymentScreen.this, productTwoId);
-                billingProcessor.consumePurchase("android.test.purchased");
+//                billingProcessor.consumePurchase("android.test.purchased");
             }
         });
 
@@ -153,7 +159,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
 
 
         switch (productId) {
-            case "android.test.purchased":
+            case GoogleConsole.productOneId:
                 this.billingBtOne.setEnabled(false);
                 break;
             case GoogleConsole.productTwoId:
@@ -214,6 +220,20 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+        }
+    }
+
+    public String getFacebookPageURL(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+            if (versionCode >= 3002850) { //newer versions of fb app
+                return "fb://facewebmodal/f?href=" + StaticMessage.FACEBOOK_URL;
+            } else { //older versions of fb app
+                return "fb://page/" + StaticMessage.FACEBOOK_PAGE_ID;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return StaticMessage.FACEBOOK_URL; //normal web url
         }
     }
 

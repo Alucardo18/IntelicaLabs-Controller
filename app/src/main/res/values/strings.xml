@@ -10,7 +10,7 @@
     <!--Donation screen-->
     <string name="DonationTitle">¡Paga lo que gustes!</string>
     <string name="DonationContent">¡Hola!\n\n
-        {$appName} fue creada por 2 apasionados a la tecnologia en sus tiempos libres.\n
+        InteliBot fue creada por 2 apasionados a la tecnologia en sus tiempos libres.\n
         Usala totalmente gratis o realiza una donacion del monto que tu elijas.\n
 
         Con tu ayuda continuaremos dando soporte he incluyendo funcionalidades a la aplicacion.\n\n
