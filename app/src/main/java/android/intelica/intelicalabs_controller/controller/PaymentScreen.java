@@ -93,6 +93,9 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
 
     }
 
+    public void back(View view) {
+        finish();
+    }
 
     public void paymentAmount() {
         this.billingBtOne.setOnClickListener(new View.OnClickListener() {
