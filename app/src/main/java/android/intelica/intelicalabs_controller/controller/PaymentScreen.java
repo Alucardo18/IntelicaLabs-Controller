@@ -70,8 +70,6 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         findViewById(R.id.restoreButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // implement Restore purchase method from in-App Billing API 3
-                Toast.makeText(view.getContext(), "has presionado el boton", Toast.LENGTH_SHORT).show();
                 billingProcessor.loadOwnedPurchasesFromGoogle();
             }
         });
