@@ -50,19 +50,19 @@
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="battle"
             android:title="Battle Mode"
-            android:summary="Mensaje bluetooth para activar el modo 1 (battle)"
+            android:summary="Mensaje bluetooth para activar el modo 1 (BATTLE)"
             android:dialogMessage=""
             android:defaultValue="BATTLE" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="line"
             android:title="Line Mode"
-            android:summary="Mensaje bluetooth para activar el modo 2 (line)"
+            android:summary="Mensaje bluetooth para activar el modo 2 (LINE)"
             android:dialogMessage=""
             android:defaultValue="LINE" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="ranger"
             android:title="Ranger Mode"
-            android:summary="Mensaje bluetooth para activar el modo 3 (ranger)"
+            android:summary="Mensaje bluetooth para activar el modo 3 (RANGER)"
             android:dialogMessage=""
             android:defaultValue="RANGER" />
 
@@ -78,15 +78,15 @@
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="start_char"
             android:title="Caracter de inicio"
-            android:summary="Caracter que inidica el inicio de un mensaje bluetooth"
-            android:dialogMessage=""
+            android:summary="Caracter que inidica el inicio de un mensaje bluetooth (default: %)"
+            android:dialogMessage="para desactivar el caracter de inicio borra el valor default"
             android:defaultValue="%" />
 
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="end_char"
             android:title="Caracter de terminación"
-            android:summary="Caracter que inidica el final de un mensaje bluetooth"
-            android:dialogMessage=""
+            android:summary="Caracter que inidica el final de un mensaje bluetooth (default: \\n)"
+            android:dialogMessage="para desactivar el caracter de inicio borra el valor default"
             android:defaultValue="\n" />
 
     </android.support.v7.preference.PreferenceCategory>
