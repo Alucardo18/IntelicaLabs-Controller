@@ -19,7 +19,7 @@ public class StaticMessage {
 
     public static String HELP_DISMISS = "GOT IT";
 
-    public static String FACEBOOK_URL = "https://www.facebook.com/PCB-LAB-547362971973979";
-    public static String FACEBOOK_PAGE_ID = "547362971973979";
+    public static String FACEBOOK_URL = "https://www.facebook.com/Intelica-Robots-Lab-365218510874966/";
+    public static String FACEBOOK_PAGE_ID = "365218510874966";
 
 }
