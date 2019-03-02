@@ -308,9 +308,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.forwards)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.FORWARDS.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_forwards))
                         .withRectangleShape()
-                        .setTitleText("ADELANTE")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_forwards_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -318,9 +318,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.backwards)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.BACKWARDS.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_backwards))
                         .withRectangleShape()
-                        .setTitleText("ATRAS")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_backwards_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -328,9 +328,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.rightRotation)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.ROTATE_RIGHT.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_rotate_right))
                         .withRectangleShape()
-                        .setTitleText("DERECHA")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_rotate_right_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -338,9 +338,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.leftRotation)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.ROTATE_LEFT.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_rotate_left))
                         .withRectangleShape()
-                        .setTitleText("IZQUIERDA")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_rotate_left_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -348,9 +348,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.battle)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.BATTLE.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_battle))
                         .withRectangleShape()
-                        .setTitleText("MODO BATALLA")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_battle_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -358,9 +358,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.line)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.LINE.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_line))
                         .withRectangleShape()
-                        .setTitleText("MODO SEGUIDOR")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_line_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -368,9 +368,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.ranger)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.RANGER.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_ranger))
                         .withRectangleShape()
-                        .setTitleText("MODO EXPLORADOR")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_ranger_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -378,9 +378,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.colorMixer)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.COLOR_MIXER.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_color_mixer))
                         .withRectangleShape()
-                        .setTitleText("COLOR MIXER")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_color_mixer_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -388,9 +388,9 @@ public class BotController extends AppCompatActivity {
                         .setTarget(this.honk)
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotControllerHelpMessages.HONK.toString())
+                        .setContentText(getResources().getText(R.string.bot_controller_tutorial_buzzer))
                         .withRectangleShape()
-                        .setTitleText("BUZZER")
+                        .setTitleText(getResources().getText(R.string.bot_controller_tutorial_buzzer_title))
                         .build()
         );
 

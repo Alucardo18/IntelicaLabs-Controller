@@ -18,6 +18,35 @@
     <string name="bot_selector_tutorial.disconnect_title">DESCONECTAR EL ROBOT</string>
     <string name="bot_selector_tutorial.disconnect">Para desconectarte de tu robot, pulsa este botón</string>
 
+    <!--BotController Screen-->
+    <string name="bot_controller.battle_mode_button">BATTLE</string>
+    <string name="bot_controller.ranger_mode_button">RANGER</string>
+    <string name="bot_controller.line_mode_button">LINE</string>
+    <string name="bot_controller.modes_title">MODOS</string>
+    <!--BotController tutorial text-->
+    <string name="bot_controller_tutorial.forwards_title">ADELANTE</string>
+    <string name="bot_controller_tutorial.forwards">Manten presionado para mover el robot hacia adelante</string>
+    <string name="bot_controller_tutorial.backwards_title">ATRAS</string>
+    <string name="bot_controller_tutorial.backwards">Manten presionado para mover el robot hacia atrás</string>
+    <string name="bot_controller_tutorial.rotate_right_title">DERECHA</string>
+    <string name="bot_controller_tutorial.rotate_right">Manten presionado para rotar el robot hacia la derecha</string>
+    <string name="bot_controller_tutorial.rotate_left_title">IZQUIERDA</string>
+    <string name="bot_controller_tutorial.rotate_left">anten presionado para rotar el robot hacia la izquierda</string>
+    <string name="bot_controller_tutorial.battle_title">MODO BATALLA</string>
+    <string name="bot_controller_tutorial.battle">Al presionar esta funcion el robot entra en modo de batalla autonomo
+este buscara el objetivo mas cercano para atacarlo</string>
+    <string name="bot_controller_tutorial.line_title">MODO SEGUIDOR</string>
+    <string name="bot_controller_tutorial.line">Al presionar esta funcion el robot entra en modo de seguidor de linea autonomo
+este seguira una linea usando los sensores inferiores</string>
+    <string name="bot_controller_tutorial.ranger_title">MODO EXPLORADOR</string>
+    <string name="bot_controller_tutorial.ranger">Al presionar esta funcion el robot entra en modo explorador autonomo
+este esquivara los obstaculos que se le presenten</string>
+    <string name="bot_controller_tutorial.color_mixer_title">COLOR MIXER</string>
+    <string name="bot_controller_tutorial.color_mixer">Al acceder al menu de "Color Mixer".
+podras elegir el color de iluminacion LED de tu robot</string>
+    <string name="bot_controller_tutorial.buzzer_title">BUZZER</string>
+    <string name="bot_controller_tutorial.buzzer">Toca un sonidito</string>
+
     <string name="title_activity_game_controller">GameController</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
