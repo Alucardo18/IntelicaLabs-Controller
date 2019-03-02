@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">InteliBot</string>
 
+    <!--BotSelector Screen-->
+    <string name="bot_selector.select_button">ELIGE TU ROBOT</string>
+    <string name="bot_selector.list_button">Listar Robots</string>
+    <string name="bot_selector.disconnect_button">Desconectar</string>
+    <string name="bot_selector.control_button">Controlar Robot</string>
+    <string name="bot_selector.connecting_message">Conectando…</string>
+    <string name="bot_selector.connected_message">ROBOT CONECTADO</string>
+    <!--BotSelector tutorial text-->
+    <string name="bot_selector_tutorial.fill_robot_list_title">LISTAR LOS ROBOTS</string>
+    <string name="bot_selector_tutorial.fill_robot_list">Este botón llena la lista con todos los dispositivos bluetooth asociados</string>
+    <string name="bot_selector_tutorial.robot_list_title">LISTA DE DISPOSITIVOS</string>
+    <string name="bot_selector_tutorial.robot_list">En esta lista debes elegir a tu robot para poder conectarte</string>
+    <string name="bot_selector_tutorial.start_controller_title">INICIAR EL CONTROLADOR</string>
+    <string name="bot_selector_tutorial.start_controller">Con este boton se abre el controlador del robot</string>
+    <string name="bot_selector_tutorial.disconnect_title">DESCONECTAR EL ROBOT</string>
+    <string name="bot_selector_tutorial.disconnect">Para desconectarte de tu robot, pulsa este botón</string>
+
     <string name="title_activity_game_controller">GameController</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

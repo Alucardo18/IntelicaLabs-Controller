@@ -63,7 +63,11 @@ public class BotSelector extends AppCompatActivity {
 
         if (BluetoothConnection.getInstance().getBluetoothSocket() != null) {
             webView.loadUrl("file:///android_asset/connected.png");
-            Toast.makeText(this, "ROBOT CONNECTED", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    this,
+                    getResources().getString(R.string.bot_selector_connected_message),
+                    Toast.LENGTH_SHORT
+            ).show();
         } else {
             webView.loadUrl("file:///android_asset/bluemotion.gif");
         }
@@ -89,7 +93,11 @@ public class BotSelector extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 List<BluetoothDevice> device2 = new ArrayList<BluetoothDevice>(pairedDevices);
 
-                Toast.makeText(BotSelector.this, "Conectando...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        BotSelector.this,
+                        getResources().getString(R.string.bot_selector_connecting_message),
+                        Toast.LENGTH_SHORT
+                ).show();
                 BluetoothConnector connectThread = new BluetoothConnector(device2.get(position));
                 connectThread.start();
 
@@ -155,9 +163,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.listRobots))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.FILL_ROBOT_LIST.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_fill_robot_list))
                         .withRectangleShape()
-                        .setTitleText("LISTAR LOS ROBOTS")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_fill_robot_list_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -165,9 +173,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.deviceListTitle))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.ROBOT_LIST.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_robot_list))
                         .withRectangleShape()
-                        .setTitleText("LISTA DE DISPOSITIVOS")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_robot_list_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -175,9 +183,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.gameController))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.START_CONTROLLER.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_start_controller))
                         .withRectangleShape()
-                        .setTitleText("INICIAR EL CONTROLADOR")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_start_controller_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -185,9 +193,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.disconnectRobot))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.DISCONNECT.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_disconnect))
                         .withRectangleShape()
-                        .setTitleText("DESCONECTAR EL ROBOT")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_disconnect_title))
                         .build()
         );
 
