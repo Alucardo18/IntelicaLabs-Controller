@@ -35,6 +35,7 @@ public class BotSelector extends AppCompatActivity {
 
     private static final int REQUEST_CODE_BLUETOOTH_ON = 1313;
     private Set<BluetoothDevice> pairedDevices;
+    private String selectedDeviceName = null;
 
     private ListView listView;
 
@@ -88,9 +89,11 @@ public class BotSelector extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 List<BluetoothDevice> device2 = new ArrayList<BluetoothDevice>(pairedDevices);
+                BluetoothDevice selectedDevice = device2.get(position);
+                selectedDeviceName = selectedDevice.getName();
 
                 Toast.makeText(BotSelector.this, "Conectando...", Toast.LENGTH_SHORT).show();
-                BluetoothConnector connectThread = new BluetoothConnector(device2.get(position));
+                BluetoothConnector connectThread = new BluetoothConnector(selectedDevice);
                 connectThread.start();
 
 
@@ -215,6 +218,7 @@ public class BotSelector extends AppCompatActivity {
     public void startBotController(View view){
 
         Intent controller = new Intent(BotSelector.this, BotController.class);
+        controller.putExtra("deviceName", this.selectedDeviceName);
         startActivity(controller);
     }
 

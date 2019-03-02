@@ -62,7 +62,7 @@ public class BotController extends AppCompatActivity {
         statusSwitch.setClickable(false);
         if (bluetoothSocket != null) {
             statusSwitch.setChecked(true);
-            statusSwitch.setText("ON");
+            statusSwitch.setText(getIntent().getStringExtra("deviceName"));
         } else {
             statusSwitch.setChecked(false);
             statusSwitch.setText("OFF");
