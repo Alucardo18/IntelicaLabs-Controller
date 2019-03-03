@@ -3,90 +3,90 @@
     android:divider="@color/preference_text_color">
 
     <android.support.v7.preference.PreferenceCategory
-        android:title="Acerca de..">
+        android:title="@string/settings.about_section_title">
     </android.support.v7.preference.PreferenceCategory>
 
         <android.intelica.intelicalabs_controller.controller.fragments.CustomPreference
-            android:title="Sobre el proyecto"
+            android:title="@string/settings.about_button_title"
             android:key="about_button"
-            android:summary="Aprende sobre el proyecto y como ayudarnos"/>
+            android:summary="@string/settings.about_button_summary"/>
 
     <android.support.v7.preference.PreferenceCategory
-        android:title="Configura los botones">
+        android:title="@string/settings.config_section_title">
 
         <!-- Movement Control -->
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="forwards"
-            android:title="Adelante"
-            android:summary="Mensaje bluetooth para ir hacia adelante"
+            android:title="@string/settings.config_forwards_title"
+            android:summary="@string/settings.config_forwards_summary"
             android:dialogMessage=""
             android:defaultValue="FORWARD" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="backwards"
-            android:title="Atrás"
-            android:summary="Mensaje bluetooth para ir hacia adelante"
+            android:title="@string/settings.config_backwards_title"
+            android:summary="@string/settings.config_backwards_summary"
             android:dialogMessage=""
             android:defaultValue="BACKWARD" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="clockwise"
-            android:title="Rotar hacia la derecha"
-            android:summary="Mensaje bluetooth para rotar hacia la derecha"
+            android:title="@string/settings.config_right_title"
+            android:summary="@string/settings.config_right_summary"
             android:dialogMessage=""
             android:defaultValue="RIGHT" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="counter_clockwise"
-            android:title="Rotar hacia la izquierda"
-            android:summary="Mensaje bluetooth para rotar hacia la izquierda"
+            android:title="@string/settings.config_left_title"
+            android:summary="@string/settings.config_left_summary"
             android:dialogMessage=""
             android:defaultValue="LEFT" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="stop"
-            android:title="Mensaje de freno"
-            android:summary="Mensaje bluetooth para hacer que el robot deje de moverse"
+            android:title="@string/settings.config_stop_title"
+            android:summary="@string/settings.config_stop_summary"
             android:dialogMessage=""
             android:defaultValue="STOP" />
 
         <!-- Modes -->
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="battle"
-            android:title="Battle Mode"
-            android:summary="Mensaje bluetooth para activar el modo 1 (BATTLE)"
+            android:title="@string/settings.config_battle_title"
+            android:summary="@string/settings.config_battle_summary"
             android:dialogMessage=""
             android:defaultValue="BATTLE" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="line"
-            android:title="Line Mode"
-            android:summary="Mensaje bluetooth para activar el modo 2 (LINE)"
+            android:title="@string/settings.config_line_title"
+            android:summary="@string/settings.config_line_summary"
             android:dialogMessage=""
             android:defaultValue="LINE" />
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="ranger"
-            android:title="Ranger Mode"
-            android:summary="Mensaje bluetooth para activar el modo 3 (RANGER)"
+            android:title="@string/settings.config_ranger_title"
+            android:summary="@string/settings.config_ranger_summary"
             android:dialogMessage=""
             android:defaultValue="RANGER" />
 
         <!-- Sound -->
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="honk"
-            android:title="Bocina"
-            android:summary="Mensaje bluetooth para tocar la bocina del robot"
+            android:title="@string/settings.config_honk_title"
+            android:summary="@string/settings.config_honk_summary"
             android:dialogMessage=""
             android:defaultValue="HONK" />
 
         <!--Indicators-->
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="start_char"
-            android:title="Caracter de inicio"
-            android:summary="Caracter que inidica el inicio de un mensaje bluetooth (default: %)"
-            android:dialogMessage="para desactivar el caracter de inicio borra el valor default"
+            android:title="@string/settings.config_start_char_title"
+            android:summary="@string/settings.config_start_char_summary"
+            android:dialogMessage="@string/settings.config_start_char_details"
             android:defaultValue="%" />
 
         <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="end_char"
-            android:title="Caracter de terminación"
-            android:summary="Caracter que inidica el final de un mensaje bluetooth (default: \\n)"
-            android:dialogMessage="para desactivar el caracter de inicio borra el valor default"
+            android:title="@string/settings.config_end_char_title"
+            android:summary="@string/settings.config_end_char_summary"
+            android:dialogMessage="@string/settings.config_end_char_details"
             android:defaultValue="\n" />
 
     </android.support.v7.preference.PreferenceCategory>

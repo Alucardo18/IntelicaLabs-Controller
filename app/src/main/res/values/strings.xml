@@ -51,6 +51,36 @@ podras elegir el color de iluminacion LED de tu robot</string>
     <string name="colormix.brightness_title">Brillo:</string>
     <string name="colormix.set_value">Valor enviado</string>
 
+    <!--Settings screen-->
+    <string name="settings.about_section_title">Acerca de..</string>
+    <string name="settings.about_button_title">Sobre el proyecto</string>
+    <string name="settings.about_button_summary">Aprende sobre el proyecto y como ayudarnos</string>
+    <string name="settings.config_section_title">Configura los botones</string>
+    <string name="settings.config_forwards_title">Adelante</string>
+    <string name="settings.config_forwards_summary">Mensaje bluetooth para ir hacia adelante (default: FORWARD)</string>
+    <string name="settings.config_backwards_title">Atrás</string>
+    <string name="settings.config_backwards_summary">Mensaje bluetooth para ir hacia atrás (default: BACKWARD)</string>
+    <string name="settings.config_right_title">Rotar hacia la derecha</string>
+    <string name="settings.config_right_summary">Mensaje bluetooth para rotar hacia la derecha (default: RIGHT)</string>
+    <string name="settings.config_left_title">Rotar hacia la izquierda</string>
+    <string name="settings.config_left_summary">Mensaje bluetooth para rotar hacia la izquierda (default: LEFT)</string>
+    <string name="settings.config_stop_title">Mensaje de freno</string>
+    <string name="settings.config_stop_summary">Mensaje bluetooth para hacer que el robot deje de moverse (default: STOP)</string>
+    <string name="settings.config_battle_title">Battle Mode</string>
+    <string name="settings.config_battle_summary">Mensaje bluetooth para activar el modo 1 (default: BATTLE)</string>
+    <string name="settings.config_line_title">Line Mode</string>
+    <string name="settings.config_line_summary">Mensaje bluetooth para activar el modo 2 (default: LINE)</string>
+    <string name="settings.config_ranger_title">Ranger Mode</string>
+    <string name="settings.config_ranger_summary">Mensaje bluetooth para activar el modo 3 (default: RANGER)</string>
+    <string name="settings.config_honk_title">Bocina</string>
+    <string name="settings.config_honk_summary">Mensaje bluetooth para tocar la bocina del robot (default: HONK)</string>
+    <string name="settings.config_start_char_title">Caracter de inicio</string>
+    <string name="settings.config_start_char_summary">Caracter que inidica el inicio de un mensaje bluetooth (default: %)</string>
+    <string name="settings.config_start_char_details">Para desactivar el caracter de inicio borra el valor default</string>
+    <string name="settings.config_end_char_title">Caracter de terminación</string>
+    <string name="settings.config_end_char_summary">Caracter que inidica el final de un mensaje bluetooth (default: \\n)</string>
+    <string name="settings.config_end_char_details">Para desactivar el caracter de inicio borra el valor default</string>
+
     <string name="title_activity_game_controller">GameController</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
