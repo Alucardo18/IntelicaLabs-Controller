@@ -47,6 +47,10 @@ podras elegir el color de iluminacion LED de tu robot</string>
     <string name="bot_controller_tutorial.buzzer_title">BUZZER</string>
     <string name="bot_controller_tutorial.buzzer">Toca un sonidito</string>
 
+    <!--Colormix screen-->
+    <string name="colormix.brightness_title">Brillo:</string>
+    <string name="colormix.set_value">Valor enviado</string>
+
     <string name="title_activity_game_controller">GameController</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

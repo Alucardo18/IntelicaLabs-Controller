@@ -72,7 +72,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Brillo:"
+        android:text="@string/colormix.brightness_title"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/svbar"
         app:layout_constraintEnd_toEndOf="@+id/svbar"

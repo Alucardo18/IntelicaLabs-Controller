@@ -99,7 +99,9 @@ public class ColorMixer extends AppCompatActivity {
         int R = (color >> 16) & 0xff;
         int G = (color >> 8) & 0xff;
         int B = (color) & 0xff;
-        textColorValue.setText("Valor enviado: #RGB" + R + "," + G + "," + B + ",\\n");
+        String colorText = getResources().getText(android.intelica.intelicalabs_controller.R.string.colormix_set_value) +
+                ": #RGB" + R + "," + G + "," + B;
+        textColorValue.setText(colorText);
         if (bluetoothSocket != null) {
             bluetoothOutput.write("#RGB" + R + "," + G + "," + B + "," + "\n");
         }
