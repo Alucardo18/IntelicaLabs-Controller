@@ -81,15 +81,13 @@ podras elegir el color de iluminacion LED de tu robot</string>
     <string name="settings.config_end_char_summary">Caracter que inidica el final de un mensaje bluetooth (default: \\n)</string>
     <string name="settings.config_end_char_details">Para desactivar el caracter de inicio borra el valor default</string>
 
-    <string name="title_activity_game_controller">GameController</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="color_preferences">colorPref</string>
-    <string name="aboutButtonText">Sobre el proyecto</string>
-
-    <!--Donation screen-->
-    <string name="DonationTitle">¡Paga lo que gustes!</string>
-    <string name="DonationContent">¡Hola!\n\n
+    <!--Donation & Contact screen-->
+    <string name="donation.contact">Contacto</string>
+    <string name="donation.restore">Restaurar</string>
+    <string name="donation.review">Reseñar</string>
+    <string name="donation.share">Compartir</string>
+    <string name="donation.title">¡Paga lo que gustes!</string>
+    <string name="donation.description">¡Hola!\n\n
         InteliBot fue creada por 2 apasionados a la tecnologia en sus tiempos libres.\n
         Usala totalmente gratis o realiza una donacion del monto que tu elijas.\n
 
@@ -98,4 +96,10 @@ podras elegir el color de iluminacion LED de tu robot</string>
         ¿No tienes como donar pero te ha gustado la aplicacion?
 
     </string>
+    <string name="donation.email_title">INSERTA TU TITULO AQUI</string>
+    <string name="donation.email_text">INSERTA TU SUGERENCIA AQUI</string>
+    <string name="donation.email_choose_message">ESCOGE TU CORREO DE PREFERENCIA</string>
+    <string name="donation.thank_you_message">¡GRACIAS POR SU DONACION!</string>
+    <string name="donation.billing_error">¡Algo salió mal con tu pago!</string>
+
 </resources>

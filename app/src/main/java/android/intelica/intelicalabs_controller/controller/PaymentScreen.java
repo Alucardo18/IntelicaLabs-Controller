@@ -146,17 +146,30 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         Intent email = new Intent(Intent.ACTION_SEND);
         email.putExtra(Intent.EXTRA_EMAIL, new String[]{TO});
         //email.putExtra(Intent.EXTRA_CC, new String[]{ CC});
-        email.putExtra(Intent.EXTRA_SUBJECT, "INSERTA TU TITULO AQUI");
-        email.putExtra(Intent.EXTRA_TEXT, "INSERTA TU SUGERENCIA AQUI");
+        email.putExtra(
+                Intent.EXTRA_SUBJECT,
+                getResources().getText(R.string.donation_email_title)
+        );
+        email.putExtra(
+                Intent.EXTRA_TEXT,
+                getResources().getText(R.string.donation_email_text)
+        );
         //need this to prompts email client only
         email.setType("message/rfc822");
-        startActivity(Intent.createChooser(email, "ESCOGE TU CORREO DE PREFERENCIA"));
+        startActivity(Intent.createChooser(
+                email,
+                getResources().getText(R.string.donation_email_choose_message)
+        ));
 
     }
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        Toast.makeText(this, "GRACIAS POR SU DONACION!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(
+                this,
+                getResources().getText(R.string.donation_thank_you_message),
+                Toast.LENGTH_SHORT
+        ).show();
 
 
         switch (productId) {
@@ -186,7 +199,11 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
 
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
-        Toast.makeText(PaymentScreen.this, "¡SOMETHING WENT WRONG!", Toast.LENGTH_LONG).show();
+        Toast.makeText(
+                PaymentScreen.this,
+                getResources().getText(R.string.donation_billing_error),
+                Toast.LENGTH_LONG
+        ).show();
     }
 
     @Override
