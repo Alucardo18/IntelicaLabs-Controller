@@ -1,4 +1,7 @@
 <resources>
+
+    <!--TODO: Translate this to english-->
+
     <string name="app_name">InteliBot</string>
 
     <!--BotSelector Screen-->
@@ -81,7 +84,7 @@ podras elegir el color de iluminacion LED de tu robot</string>
     <string name="settings.config_end_char_summary">Caracter que inidica el final de un mensaje bluetooth (default: \\n)</string>
     <string name="settings.config_end_char_details">Para desactivar el caracter de inicio borra el valor default</string>
 
-    <!--Donation & Contact screen-->
+    <!--Donation & Contact Screen-->
     <string name="donation.contact">Contacto</string>
     <string name="donation.restore">Restaurar</string>
     <string name="donation.review">Reseñar</string>

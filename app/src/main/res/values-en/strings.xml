@@ -1,15 +1,93 @@
 <resources>
     <string name="app_name">InteliBot</string>
 
-    <string name="title_activity_game_controller">GameController</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="color_preferences">colorPref</string>
-    <string name="aboutButtonText">Sobre el proyecto</string>
+    <!--BotSelector Screen-->
+    <string name="bot_selector.select_button">ELIGE TU ROBOT</string>
+    <string name="bot_selector.list_button">Listar Robots</string>
+    <string name="bot_selector.disconnect_button">Desconectar</string>
+    <string name="bot_selector.control_button">Controlar Robot</string>
+    <string name="bot_selector.connecting_message">Conectando…</string>
+    <string name="bot_selector.connected_message">ROBOT CONECTADO</string>
+    <!--BotSelector tutorial text-->
+    <string name="bot_selector_tutorial.fill_robot_list_title">LISTAR LOS ROBOTS</string>
+    <string name="bot_selector_tutorial.fill_robot_list">Este botón llena la lista con todos los dispositivos bluetooth asociados</string>
+    <string name="bot_selector_tutorial.robot_list_title">LISTA DE DISPOSITIVOS</string>
+    <string name="bot_selector_tutorial.robot_list">En esta lista debes elegir a tu robot para poder conectarte</string>
+    <string name="bot_selector_tutorial.start_controller_title">INICIAR EL CONTROLADOR</string>
+    <string name="bot_selector_tutorial.start_controller">Con este boton se abre el controlador del robot</string>
+    <string name="bot_selector_tutorial.disconnect_title">DESCONECTAR EL ROBOT</string>
+    <string name="bot_selector_tutorial.disconnect">Para desconectarte de tu robot, pulsa este botón</string>
 
-    <!--Donation screen-->
-    <string name="DonationTitle">¡Paga lo que gustes!</string>
-    <string name="DonationContent">¡Hola!\n\n
+    <!--BotController Screen-->
+    <string name="bot_controller.battle_mode_button">BATTLE</string>
+    <string name="bot_controller.ranger_mode_button">RANGER</string>
+    <string name="bot_controller.line_mode_button">LINE</string>
+    <string name="bot_controller.modes_title">MODOS</string>
+    <!--BotController tutorial text-->
+    <string name="bot_controller_tutorial.forwards_title">ADELANTE</string>
+    <string name="bot_controller_tutorial.forwards">Manten presionado para mover el robot hacia adelante</string>
+    <string name="bot_controller_tutorial.backwards_title">ATRAS</string>
+    <string name="bot_controller_tutorial.backwards">Manten presionado para mover el robot hacia atrás</string>
+    <string name="bot_controller_tutorial.rotate_right_title">DERECHA</string>
+    <string name="bot_controller_tutorial.rotate_right">Manten presionado para rotar el robot hacia la derecha</string>
+    <string name="bot_controller_tutorial.rotate_left_title">IZQUIERDA</string>
+    <string name="bot_controller_tutorial.rotate_left">anten presionado para rotar el robot hacia la izquierda</string>
+    <string name="bot_controller_tutorial.battle_title">MODO BATALLA</string>
+    <string name="bot_controller_tutorial.battle">Al presionar esta funcion el robot entra en modo de batalla autonomo
+este buscara el objetivo mas cercano para atacarlo</string>
+    <string name="bot_controller_tutorial.line_title">MODO SEGUIDOR</string>
+    <string name="bot_controller_tutorial.line">Al presionar esta funcion el robot entra en modo de seguidor de linea autonomo
+este seguira una linea usando los sensores inferiores</string>
+    <string name="bot_controller_tutorial.ranger_title">MODO EXPLORADOR</string>
+    <string name="bot_controller_tutorial.ranger">Al presionar esta funcion el robot entra en modo explorador autonomo
+este esquivara los obstaculos que se le presenten</string>
+    <string name="bot_controller_tutorial.color_mixer_title">COLOR MIXER</string>
+    <string name="bot_controller_tutorial.color_mixer">Al acceder al menu de "Color Mixer".
+podras elegir el color de iluminacion LED de tu robot</string>
+    <string name="bot_controller_tutorial.buzzer_title">BUZZER</string>
+    <string name="bot_controller_tutorial.buzzer">Toca un sonidito</string>
+
+    <!--Colormix screen-->
+    <string name="colormix.brightness_title">Brillo:</string>
+    <string name="colormix.set_value">Valor enviado</string>
+
+    <!--Settings screen-->
+    <string name="settings.about_section_title">Acerca de..</string>
+    <string name="settings.about_button_title">Sobre el proyecto</string>
+    <string name="settings.about_button_summary">Aprende sobre el proyecto y como ayudarnos</string>
+    <string name="settings.config_section_title">Configura los botones</string>
+    <string name="settings.config_forwards_title">Adelante</string>
+    <string name="settings.config_forwards_summary">Mensaje bluetooth para ir hacia adelante (default: FORWARD)</string>
+    <string name="settings.config_backwards_title">Atrás</string>
+    <string name="settings.config_backwards_summary">Mensaje bluetooth para ir hacia atrás (default: BACKWARD)</string>
+    <string name="settings.config_right_title">Rotar hacia la derecha</string>
+    <string name="settings.config_right_summary">Mensaje bluetooth para rotar hacia la derecha (default: RIGHT)</string>
+    <string name="settings.config_left_title">Rotar hacia la izquierda</string>
+    <string name="settings.config_left_summary">Mensaje bluetooth para rotar hacia la izquierda (default: LEFT)</string>
+    <string name="settings.config_stop_title">Mensaje de freno</string>
+    <string name="settings.config_stop_summary">Mensaje bluetooth para hacer que el robot deje de moverse (default: STOP)</string>
+    <string name="settings.config_battle_title">Battle Mode</string>
+    <string name="settings.config_battle_summary">Mensaje bluetooth para activar el modo 1 (default: BATTLE)</string>
+    <string name="settings.config_line_title">Line Mode</string>
+    <string name="settings.config_line_summary">Mensaje bluetooth para activar el modo 2 (default: LINE)</string>
+    <string name="settings.config_ranger_title">Ranger Mode</string>
+    <string name="settings.config_ranger_summary">Mensaje bluetooth para activar el modo 3 (default: RANGER)</string>
+    <string name="settings.config_honk_title">Bocina</string>
+    <string name="settings.config_honk_summary">Mensaje bluetooth para tocar la bocina del robot (default: HONK)</string>
+    <string name="settings.config_start_char_title">Caracter de inicio</string>
+    <string name="settings.config_start_char_summary">Caracter que inidica el inicio de un mensaje bluetooth (default: %)</string>
+    <string name="settings.config_start_char_details">Para desactivar el caracter de inicio borra el valor default</string>
+    <string name="settings.config_end_char_title">Caracter de terminación</string>
+    <string name="settings.config_end_char_summary">Caracter que inidica el final de un mensaje bluetooth (default: \\n)</string>
+    <string name="settings.config_end_char_details">Para desactivar el caracter de inicio borra el valor default</string>
+
+    <!--Donation & Contact Screen-->
+    <string name="donation.contact">Contacto</string>
+    <string name="donation.restore">Restaurar</string>
+    <string name="donation.review">Reseñar</string>
+    <string name="donation.share">Compartir</string>
+    <string name="donation.title">¡Paga lo que gustes!</string>
+    <string name="donation.description">¡Hola!\n\n
         InteliBot fue creada por 2 apasionados a la tecnologia en sus tiempos libres.\n
         Usala totalmente gratis o realiza una donacion del monto que tu elijas.\n
 
@@ -18,4 +96,10 @@
         ¿No tienes como donar pero te ha gustado la aplicacion?
 
     </string>
+    <string name="donation.email_title">INSERTA TU TITULO AQUI</string>
+    <string name="donation.email_text">INSERTA TU SUGERENCIA AQUI</string>
+    <string name="donation.email_choose_message">ESCOGE TU CORREO DE PREFERENCIA</string>
+    <string name="donation.thank_you_message">¡GRACIAS POR SU DONACION!</string>
+    <string name="donation.billing_error">¡Algo salió mal con tu pago!</string>
+
 </resources>
