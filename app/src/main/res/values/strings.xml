@@ -1,8 +1,7 @@
 <resources>
 
-    <!--TODO: Translate this to english-->
-
     <string name="app_name">InteliBot</string>
+    <string name="color_preferences">colorPref</string>
 
     <!--BotSelector Screen-->
     <string name="bot_selector.select_button">ELIGE TU ROBOT</string>
@@ -55,7 +54,7 @@ podras elegir el color de iluminacion LED de tu robot</string>
     <string name="colormix.set_value">Valor enviado</string>
 
     <!--Settings screen-->
-    <string name="settings.about_section_title">Acerca de..</string>
+    <string name="settings.about_section_title">Acerca de…</string>
     <string name="settings.about_button_title">Sobre el proyecto</string>
     <string name="settings.about_button_summary">Aprende sobre el proyecto y como ayudarnos</string>
     <string name="settings.config_section_title">Configura los botones</string>

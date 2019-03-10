@@ -246,7 +246,7 @@
         fancy:fb_fontIconSize="24dp"
         fancy:fb_iconPosition="left"
         fancy:fb_radius="10dp"
-        fancy:fb_text="@string/donation.review"
+        fancy:fb_text="@string/donation.share"
         fancy:fb_textColor="#FFFFFF"
         fancy:fb_textSize="16dp"
         fancy:layout_constraintBottom_toBottomOf="parent"

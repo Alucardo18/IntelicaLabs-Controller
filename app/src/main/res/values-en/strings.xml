@@ -1,105 +1,107 @@
 <resources>
+
     <string name="app_name">InteliBot</string>
+    <string name="color_preferences">colorPref</string>
 
     <!--BotSelector Screen-->
-    <string name="bot_selector.select_button">ELIGE TU ROBOT</string>
-    <string name="bot_selector.list_button">Listar Robots</string>
-    <string name="bot_selector.disconnect_button">Desconectar</string>
-    <string name="bot_selector.control_button">Controlar Robot</string>
-    <string name="bot_selector.connecting_message">Conectando…</string>
-    <string name="bot_selector.connected_message">ROBOT CONECTADO</string>
+    <string name="bot_selector.select_button">CHOOSE YOUR ROBOT</string>
+    <string name="bot_selector.list_button">List Robots</string>
+    <string name="bot_selector.disconnect_button">Disconnect</string>
+    <string name="bot_selector.control_button">Control Robot</string>
+    <string name="bot_selector.connecting_message">Connecting…</string>
+    <string name="bot_selector.connected_message">CONNECTED TO ROBOT</string>
     <!--BotSelector tutorial text-->
-    <string name="bot_selector_tutorial.fill_robot_list_title">LISTAR LOS ROBOTS</string>
-    <string name="bot_selector_tutorial.fill_robot_list">Este botón llena la lista con todos los dispositivos bluetooth asociados</string>
-    <string name="bot_selector_tutorial.robot_list_title">LISTA DE DISPOSITIVOS</string>
-    <string name="bot_selector_tutorial.robot_list">En esta lista debes elegir a tu robot para poder conectarte</string>
-    <string name="bot_selector_tutorial.start_controller_title">INICIAR EL CONTROLADOR</string>
-    <string name="bot_selector_tutorial.start_controller">Con este boton se abre el controlador del robot</string>
-    <string name="bot_selector_tutorial.disconnect_title">DESCONECTAR EL ROBOT</string>
-    <string name="bot_selector_tutorial.disconnect">Para desconectarte de tu robot, pulsa este botón</string>
+    <string name="bot_selector_tutorial.fill_robot_list_title">LIST ROBOTS</string>
+    <string name="bot_selector_tutorial.fill_robot_list">This button fills the robot list with al the associated bluetooth devices</string>
+    <string name="bot_selector_tutorial.robot_list_title">ROBOT LIST</string>
+    <string name="bot_selector_tutorial.robot_list">You can use this list to pick the robot you want to connect to</string>
+    <string name="bot_selector_tutorial.start_controller_title">START THE CONTROLLER</string>
+    <string name="bot_selector_tutorial.start_controller">You can open the robot controller with this button</string>
+    <string name="bot_selector_tutorial.disconnect_title">DISCONNECT FROM ROBOT</string>
+    <string name="bot_selector_tutorial.disconnect">You can use this button to disconnect form your robot</string>
 
     <!--BotController Screen-->
     <string name="bot_controller.battle_mode_button">BATTLE</string>
     <string name="bot_controller.ranger_mode_button">RANGER</string>
     <string name="bot_controller.line_mode_button">LINE</string>
-    <string name="bot_controller.modes_title">MODOS</string>
+    <string name="bot_controller.modes_title">MODES</string>
     <!--BotController tutorial text-->
-    <string name="bot_controller_tutorial.forwards_title">ADELANTE</string>
-    <string name="bot_controller_tutorial.forwards">Manten presionado para mover el robot hacia adelante</string>
-    <string name="bot_controller_tutorial.backwards_title">ATRAS</string>
-    <string name="bot_controller_tutorial.backwards">Manten presionado para mover el robot hacia atrás</string>
-    <string name="bot_controller_tutorial.rotate_right_title">DERECHA</string>
-    <string name="bot_controller_tutorial.rotate_right">Manten presionado para rotar el robot hacia la derecha</string>
-    <string name="bot_controller_tutorial.rotate_left_title">IZQUIERDA</string>
-    <string name="bot_controller_tutorial.rotate_left">anten presionado para rotar el robot hacia la izquierda</string>
-    <string name="bot_controller_tutorial.battle_title">MODO BATALLA</string>
-    <string name="bot_controller_tutorial.battle">Al presionar esta funcion el robot entra en modo de batalla autonomo
-este buscara el objetivo mas cercano para atacarlo</string>
-    <string name="bot_controller_tutorial.line_title">MODO SEGUIDOR</string>
-    <string name="bot_controller_tutorial.line">Al presionar esta funcion el robot entra en modo de seguidor de linea autonomo
-este seguira una linea usando los sensores inferiores</string>
-    <string name="bot_controller_tutorial.ranger_title">MODO EXPLORADOR</string>
-    <string name="bot_controller_tutorial.ranger">Al presionar esta funcion el robot entra en modo explorador autonomo
-este esquivara los obstaculos que se le presenten</string>
+    <string name="bot_controller_tutorial.forwards_title">FORWARDS</string>
+    <string name="bot_controller_tutorial.forwards">Keep this button pressed to move the bot forwards</string>
+    <string name="bot_controller_tutorial.backwards_title">BACKWARDS</string>
+    <string name="bot_controller_tutorial.backwards">Keep this button pressed to move the bot backwards</string>
+    <string name="bot_controller_tutorial.rotate_right_title">RIGHT</string>
+    <string name="bot_controller_tutorial.rotate_right">Keep this button pressed to rotate the bot to the right</string>
+    <string name="bot_controller_tutorial.rotate_left_title">LEFT</string>
+    <string name="bot_controller_tutorial.rotate_left">Keep this button pressed to rotate the bot to the left</string>
+    <string name="bot_controller_tutorial.battle_title">BATTLE MODE</string>
+    <string name="bot_controller_tutorial.battle">This button activates the autonomous battle mode,
+        the bot will look for the closest objective to attack</string>
+    <string name="bot_controller_tutorial.line_title">LINE FOLLOWER MODE</string>
+    <string name="bot_controller_tutorial.line">This button activates the autonomous line follower mode,
+the bot will follow a black line using the lower sensors</string>
+    <string name="bot_controller_tutorial.ranger_title">EXPLORER MODE</string>
+    <string name="bot_controller_tutorial.ranger">This button activates the autonomous line follower mode,
+the bot will avoid the obstacles that it encounters</string>
     <string name="bot_controller_tutorial.color_mixer_title">COLOR MIXER</string>
-    <string name="bot_controller_tutorial.color_mixer">Al acceder al menu de "Color Mixer".
-podras elegir el color de iluminacion LED de tu robot</string>
+    <string name="bot_controller_tutorial.color_mixer">You can access the "Color Mixer" screen.
+From here you can choose the LED illumination of your bot</string>
     <string name="bot_controller_tutorial.buzzer_title">BUZZER</string>
-    <string name="bot_controller_tutorial.buzzer">Toca un sonidito</string>
+    <string name="bot_controller_tutorial.buzzer">Play a short melody through the bot speaker</string>
 
     <!--Colormix screen-->
-    <string name="colormix.brightness_title">Brillo:</string>
-    <string name="colormix.set_value">Valor enviado</string>
+    <string name="colormix.brightness_title">Brightness:</string>
+    <string name="colormix.set_value">Value</string>
 
     <!--Settings screen-->
-    <string name="settings.about_section_title">Acerca de..</string>
-    <string name="settings.about_button_title">Sobre el proyecto</string>
-    <string name="settings.about_button_summary">Aprende sobre el proyecto y como ayudarnos</string>
-    <string name="settings.config_section_title">Configura los botones</string>
-    <string name="settings.config_forwards_title">Adelante</string>
-    <string name="settings.config_forwards_summary">Mensaje bluetooth para ir hacia adelante (default: FORWARD)</string>
-    <string name="settings.config_backwards_title">Atrás</string>
-    <string name="settings.config_backwards_summary">Mensaje bluetooth para ir hacia atrás (default: BACKWARD)</string>
-    <string name="settings.config_right_title">Rotar hacia la derecha</string>
-    <string name="settings.config_right_summary">Mensaje bluetooth para rotar hacia la derecha (default: RIGHT)</string>
-    <string name="settings.config_left_title">Rotar hacia la izquierda</string>
-    <string name="settings.config_left_summary">Mensaje bluetooth para rotar hacia la izquierda (default: LEFT)</string>
-    <string name="settings.config_stop_title">Mensaje de freno</string>
-    <string name="settings.config_stop_summary">Mensaje bluetooth para hacer que el robot deje de moverse (default: STOP)</string>
+    <string name="settings.about_section_title">About…</string>
+    <string name="settings.about_button_title">About the project</string>
+    <string name="settings.about_button_summary">Learn about the project and how to help us</string>
+    <string name="settings.config_section_title">Button configuration</string>
+    <string name="settings.config_forwards_title">Forwards</string>
+    <string name="settings.config_forwards_summary">Bluetooth message to go forwards (default: FORWARD)</string>
+    <string name="settings.config_backwards_title">Backwards</string>
+    <string name="settings.config_backwards_summary">Bluetooth message to go backwards (default: BACKWARD)</string>
+    <string name="settings.config_right_title">Rotate clockwise</string>
+    <string name="settings.config_right_summary">Bluetooth message to rotate clockwise (default: RIGHT)</string>
+    <string name="settings.config_left_title">Rotate counter clockwise</string>
+    <string name="settings.config_left_summary">Bluetooth message to rotate counter clockwise (default: LEFT)</string>
+    <string name="settings.config_stop_title">Breaking message</string>
+    <string name="settings.config_stop_summary">Bluetooth message to make the robot stop moving (default: STOP)</string>
     <string name="settings.config_battle_title">Battle Mode</string>
-    <string name="settings.config_battle_summary">Mensaje bluetooth para activar el modo 1 (default: BATTLE)</string>
+    <string name="settings.config_battle_summary">Bluetooth message to engage mode 1 (default: BATTLE)</string>
     <string name="settings.config_line_title">Line Mode</string>
-    <string name="settings.config_line_summary">Mensaje bluetooth para activar el modo 2 (default: LINE)</string>
+    <string name="settings.config_line_summary">Bluetooth message to engage mode 2 (default: LINE)</string>
     <string name="settings.config_ranger_title">Ranger Mode</string>
-    <string name="settings.config_ranger_summary">Mensaje bluetooth para activar el modo 3 (default: RANGER)</string>
-    <string name="settings.config_honk_title">Bocina</string>
-    <string name="settings.config_honk_summary">Mensaje bluetooth para tocar la bocina del robot (default: HONK)</string>
-    <string name="settings.config_start_char_title">Caracter de inicio</string>
-    <string name="settings.config_start_char_summary">Caracter que inidica el inicio de un mensaje bluetooth (default: %)</string>
-    <string name="settings.config_start_char_details">Para desactivar el caracter de inicio borra el valor default</string>
-    <string name="settings.config_end_char_title">Caracter de terminación</string>
-    <string name="settings.config_end_char_summary">Caracter que inidica el final de un mensaje bluetooth (default: \\n)</string>
-    <string name="settings.config_end_char_details">Para desactivar el caracter de inicio borra el valor default</string>
+    <string name="settings.config_ranger_summary">Bluetooth message to engage mode 3 (default: RANGER)</string>
+    <string name="settings.config_honk_title">Honk</string>
+    <string name="settings.config_honk_summary">Bluetooth message to play the bot\'s buzzer (default: HONK)</string>
+    <string name="settings.config_start_char_title">Start character</string>
+    <string name="settings.config_start_char_summary">Character used to indicate the start of a bluetooth message (default: %)</string>
+    <string name="settings.config_start_char_details">To disable the usage of a start character, delete the default</string>
+    <string name="settings.config_end_char_title">End character</string>
+    <string name="settings.config_end_char_summary">Character used to indicate the end of a bluetooth message (default: \\n)</string>
+    <string name="settings.config_end_char_details">To disable the usage of an end character, delete the default</string>
 
     <!--Donation & Contact Screen-->
-    <string name="donation.contact">Contacto</string>
-    <string name="donation.restore">Restaurar</string>
-    <string name="donation.review">Reseñar</string>
-    <string name="donation.share">Compartir</string>
-    <string name="donation.title">¡Paga lo que gustes!</string>
-    <string name="donation.description">¡Hola!\n\n
-        InteliBot fue creada por 2 apasionados a la tecnologia en sus tiempos libres.\n
-        Usala totalmente gratis o realiza una donacion del monto que tu elijas.\n
+    <string name="donation.contact">Contact</string>
+    <string name="donation.restore">Restore</string>
+    <string name="donation.review">Review</string>
+    <string name="donation.share">Share</string>
+    <string name="donation.title">Pay what you want!</string>
+    <string name="donation.description">Hello there!\n\n
+        InteliBot was created by two technology enthusiasts in their free time.\n
+        You can use it for free for as long as you want, but a donation would be appreciated.\n
 
-        Con tu ayuda continuaremos dando soporte he incluyendo funcionalidades a la aplicacion.\n\n
+        With your help we can continue to maintain and improve this app.\n\n
 
-        ¿No tienes como donar pero te ha gustado la aplicacion?
+        You liked the app but you can\'t donate? You also can:
 
     </string>
-    <string name="donation.email_title">INSERTA TU TITULO AQUI</string>
-    <string name="donation.email_text">INSERTA TU SUGERENCIA AQUI</string>
-    <string name="donation.email_choose_message">ESCOGE TU CORREO DE PREFERENCIA</string>
-    <string name="donation.thank_you_message">¡GRACIAS POR SU DONACION!</string>
-    <string name="donation.billing_error">¡Algo salió mal con tu pago!</string>
+    <string name="donation.email_title">ADD YOUR TITLE HERE</string>
+    <string name="donation.email_text">ADD YOUR SUGGESTION HERE</string>
+    <string name="donation.email_choose_message">CHOOSE YOUR MAILING APP</string>
+    <string name="donation.thank_you_message">THANKS FOR YOUR DONATION!</string>
+    <string name="donation.billing_error">Something has gone wrong with your donation!</string>
 
 </resources>
