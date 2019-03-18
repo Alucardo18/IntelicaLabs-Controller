@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/settingsTint"
-    tools:context=".controller.PaymentScreen">
+    tools:context="app.intelica.intelicalabs_controller.controller.PaymentScreen">
 
     <Button
         android:id="@+id/colormixBackButton"

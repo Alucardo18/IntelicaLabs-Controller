@@ -6,7 +6,7 @@
         android:title="Acerca de..">
     </android.support.v7.preference.PreferenceCategory>
 
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomPreference
             android:title="Sobre el proyecto"
             android:key="about_button"
             android:summary="Aprende sobre el proyecto y como ayudarnos"/>
@@ -15,31 +15,31 @@
         android:title="Configura los botones">
 
         <!-- Movement Control -->
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="forwards"
             android:title="Adelante"
             android:summary="Mensaje bluetooth para ir hacia adelante"
             android:dialogMessage=""
             android:defaultValue="FORWARD" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="backwards"
             android:title="Atrás"
             android:summary="Mensaje bluetooth para ir hacia adelante"
             android:dialogMessage=""
             android:defaultValue="BACKWARD" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="clockwise"
             android:title="Rotar hacia la derecha"
             android:summary="Mensaje bluetooth para rotar hacia la derecha"
             android:dialogMessage=""
             android:defaultValue="RIGHT" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="counter_clockwise"
             android:title="Rotar hacia la izquierda"
             android:summary="Mensaje bluetooth para rotar hacia la izquierda"
             android:dialogMessage=""
             android:defaultValue="LEFT" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="stop"
             android:title="Mensaje de freno"
             android:summary="Mensaje bluetooth para hacer que el robot deje de moverse"
@@ -47,19 +47,19 @@
             android:defaultValue="STOP" />
 
         <!-- Modes -->
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="battle"
             android:title="Battle Mode"
             android:summary="Mensaje bluetooth para activar el modo 1 (BATTLE)"
             android:dialogMessage=""
             android:defaultValue="BATTLE" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="line"
             android:title="Line Mode"
             android:summary="Mensaje bluetooth para activar el modo 2 (LINE)"
             android:dialogMessage=""
             android:defaultValue="LINE" />
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="ranger"
             android:title="Ranger Mode"
             android:summary="Mensaje bluetooth para activar el modo 3 (RANGER)"
@@ -67,7 +67,7 @@
             android:defaultValue="RANGER" />
 
         <!-- Sound -->
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="honk"
             android:title="Bocina"
             android:summary="Mensaje bluetooth para tocar la bocina del robot"
@@ -75,14 +75,14 @@
             android:defaultValue="HONK" />
 
         <!--Indicators-->
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="start_char"
             android:title="Caracter de inicio"
             android:summary="Caracter que inidica el inicio de un mensaje bluetooth (default: %)"
             android:dialogMessage="para desactivar el caracter de inicio borra el valor default"
             android:defaultValue="%" />
 
-        <android.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
+        <app.intelica.intelicalabs_controller.controller.fragments.CustomEditTextPreference
             android:key="end_char"
             android:title="Caracter de terminación"
             android:summary="Caracter que inidica el final de un mensaje bluetooth (default: \\n)"
