@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/basicbackground"
-    tools:context="android.intelica.intelicalabs_controller.controller.BotController"
+    tools:context="app.intelica.intelicalabs_controller.app.intelica.intelicalabs_controller.controller.BotController"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="73dp">
 

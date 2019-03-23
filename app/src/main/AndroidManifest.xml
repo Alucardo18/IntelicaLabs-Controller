@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.intelica.intelicalabs_controller">
+    package="app.intelica.intelicalabs_controller">
 
     <!-- PERMISOS DE LA APLICACION -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -14,17 +14,17 @@
         android:roundIcon="@mipmap/intelibot_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Launcher">
-        <activity android:name=".controller.BotSelector">
+        <activity android:name="app.intelica.intelicalabs_controller.controller.BotSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.BotController" />
-        <activity android:name=".controller.ColorMixer" />
-        <activity android:name=".controller.ControllerSettings" />
-        <activity android:name=".controller.PaymentScreen" />
+        <activity android:name="app.intelica.intelicalabs_controller.controller.BotController" />
+        <activity android:name="app.intelica.intelicalabs_controller.controller.ColorMixer" />
+        <activity android:name="app.intelica.intelicalabs_controller.controller.ControllerSettings" />
+        <activity android:name="app.intelica.intelicalabs_controller.controller.PaymentScreen" />
     </application>
 
 </manifest>
