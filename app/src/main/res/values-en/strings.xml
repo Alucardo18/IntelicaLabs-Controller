@@ -12,7 +12,7 @@
     <string name="bot_selector.connected_message">CONNECTED TO ROBOT</string>
     <!--BotSelector tutorial text-->
     <string name="bot_selector_tutorial.fill_robot_list_title">LIST ROBOTS</string>
-    <string name="bot_selector_tutorial.fill_robot_list">This button fills the robot list with al the associated bluetooth devices</string>
+    <string name="bot_selector_tutorial.fill_robot_list">This button fills the robot list with all the associated bluetooth devices</string>
     <string name="bot_selector_tutorial.robot_list_title">ROBOT LIST</string>
     <string name="bot_selector_tutorial.robot_list">You can use this list to pick the robot you want to connect to</string>
     <string name="bot_selector_tutorial.start_controller_title">START THE CONTROLLER</string>
