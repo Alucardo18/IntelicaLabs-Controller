@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothManager;
 import app.intelica.intelicalabs_controller.Util.help.messages.BotSelectorHelpMessages;
 import app.intelica.intelicalabs_controller.view.BluetoothDevicesList;
@@ -13,6 +14,7 @@ import app.intelica.intelicalabs_controller.R;
 import app.intelica.intelicalabs_controller.Util.StaticMessage;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnector;
+
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,7 +66,11 @@ public class BotSelector extends AppCompatActivity {
 
         if (BluetoothConnection.getInstance().getBluetoothSocket() != null) {
             webView.loadUrl("file:///android_asset/connected.png");
-            Toast.makeText(this, "ROBOT CONNECTED", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    this,
+                    getResources().getString(R.string.bot_selector_connected_message),
+                    Toast.LENGTH_SHORT
+            ).show();
         } else {
             webView.loadUrl("file:///android_asset/bluemotion.gif");
         }
@@ -82,7 +88,7 @@ public class BotSelector extends AppCompatActivity {
     }
 
 
-    private void setupUiListeners(){
+    private void setupUiListeners() {
 
         listView = (ListView) findViewById(R.id.listViewPaired);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,8 +98,12 @@ public class BotSelector extends AppCompatActivity {
                 BluetoothDevice selectedDevice = device2.get(position);
                 selectedDeviceName = selectedDevice.getName();
 
-                Toast.makeText(BotSelector.this, "Conectando...", Toast.LENGTH_SHORT).show();
-                BluetoothConnector connectThread = new BluetoothConnector(selectedDevice);
+                Toast.makeText(
+                        BotSelector.this,
+                        getResources().getString(R.string.bot_selector_connecting_message),
+                        Toast.LENGTH_SHORT
+                ).show();
+                BluetoothConnector connectThread = new BluetoothConnector(device2.get(position));
                 connectThread.start();
 
 
@@ -158,9 +168,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.listRobots))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.FILL_ROBOT_LIST.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_fill_robot_list))
                         .withRectangleShape()
-                        .setTitleText("LISTAR LOS ROBOTS")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_fill_robot_list_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -168,9 +178,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.deviceListTitle))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.ROBOT_LIST.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_robot_list))
                         .withRectangleShape()
-                        .setTitleText("LISTA DE DISPOSITIVOS")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_robot_list_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -178,9 +188,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.gameController))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.START_CONTROLLER.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_start_controller))
                         .withRectangleShape()
-                        .setTitleText("INICIAR EL CONTROLADOR")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_start_controller_title))
                         .build()
         );
         sequence.addSequenceItem(
@@ -188,9 +198,9 @@ public class BotSelector extends AppCompatActivity {
                         .setTarget(findViewById(R.id.disconnectRobot))
                         .setDismissText("")
                         .setDismissOnTouch(true)
-                        .setContentText(BotSelectorHelpMessages.DISCONNECT.toString())
+                        .setContentText(getResources().getText(R.string.bot_selector_tutorial_disconnect))
                         .withRectangleShape()
-                        .setTitleText("DESCONECTAR EL ROBOT")
+                        .setTitleText(getResources().getText(R.string.bot_selector_tutorial_disconnect_title))
                         .build()
         );
 
@@ -199,12 +209,12 @@ public class BotSelector extends AppCompatActivity {
     }
 
 
-    public void listDevices(View view){
+    public void listDevices(View view) {
 
         listPairedDevices();
     }
 
-    public void disconnect(View view){
+    public void disconnect(View view) {
 
         if (BluetoothConnection.getInstance().getBluetoothSocket() != null) {
             BluetoothConnector connectThread = new BluetoothConnector();
@@ -215,7 +225,7 @@ public class BotSelector extends AppCompatActivity {
         }
     }
 
-    public void startBotController(View view){
+    public void startBotController(View view) {
 
         Intent controller = new Intent(BotSelector.this, BotController.class);
         controller.putExtra("deviceName", this.selectedDeviceName);
