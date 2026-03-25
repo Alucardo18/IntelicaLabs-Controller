@@ -12,12 +12,14 @@ public class BluetoothConnector extends Thread {
 
     private BluetoothSocket mmSocket;
     private final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private BluetoothAdapter mBluetoothAdapter;
 
     public BluetoothConnector() {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
     public BluetoothConnector(BluetoothDevice device) {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         // Use a temporary object that is later assigned to mmSocket,
         // because mmSocket is final
         BluetoothSocket tmp = null;

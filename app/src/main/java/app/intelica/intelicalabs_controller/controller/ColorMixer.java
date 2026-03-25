@@ -7,11 +7,12 @@ import android.content.pm.ActivityInfo;
 import app.intelica.intelicalabs_controller.R;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
 

@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.intelica.intelicalabs_controller">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- PERMISOS DE LA APLICACION -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
+    <queries>
+        <package android:name="com.facebook.katana" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="market" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="message/rfc822" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -14,7 +28,8 @@
         android:roundIcon="@mipmap/intelibot_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Launcher">
-        <activity android:name="app.intelica.intelicalabs_controller.controller.BotSelector">
+        <activity android:name="app.intelica.intelicalabs_controller.controller.BotSelector"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

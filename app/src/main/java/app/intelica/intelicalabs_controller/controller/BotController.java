@@ -11,9 +11,7 @@ import app.intelica.intelicalabs_controller.Util.StaticMessage;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothConnection;
 import app.intelica.intelicalabs_controller.Util.bluetooth.BluetoothOutput;
 import app.intelica.intelicalabs_controller.Util.help.messages.BotControllerHelpMessages;
-import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +19,9 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;

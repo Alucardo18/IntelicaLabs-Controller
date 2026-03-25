@@ -1,17 +1,17 @@
-<android.support.v7.preference.PreferenceScreen
+<androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:divider="@color/preference_text_color">
 
-    <android.support.v7.preference.PreferenceCategory
+    <androidx.preference.PreferenceCategory
         android:title="@string/settings.about_section_title">
-    </android.support.v7.preference.PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
     <app.intelica.intelicalabs_controller.controller.fragments.CustomPreference
         android:title="@string/settings.about_button_title"
         android:key="about_button"
         android:summary="@string/settings.about_button_summary"/>
 
-    <android.support.v7.preference.PreferenceCategory
+    <androidx.preference.PreferenceCategory
         android:title="@string/settings.config_section_title">
 
         <!-- Movement Control -->
@@ -89,7 +89,7 @@
             android:dialogMessage="@string/settings.config_end_char_details"
             android:defaultValue="\n" />
 
-    </android.support.v7.preference.PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
 
-</android.support.v7.preference.PreferenceScreen>
+</androidx.preference.PreferenceScreen>

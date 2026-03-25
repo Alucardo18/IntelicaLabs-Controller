@@ -4,8 +4,8 @@ import android.content.Intent;
 import app.intelica.intelicalabs_controller.R;
 import app.intelica.intelicalabs_controller.controller.PaymentScreen;
 import android.os.Bundle;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 public class ControllerSettingsFragment extends PreferenceFragmentCompat {
     @Override

@@ -4,11 +4,12 @@ import android.content.pm.ActivityInfo;
 import app.intelica.intelicalabs_controller.R;
 import app.intelica.intelicalabs_controller.controller.fragments.ControllerSettingsFragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class ControllerSettings extends AppCompatActivity {
 

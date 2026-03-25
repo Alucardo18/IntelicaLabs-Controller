@@ -5,24 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import app.intelica.intelicalabs_controller.R;
-import app.intelica.intelicalabs_controller.Util.GoogleConsole;
-import app.intelica.intelicalabs_controller.Util.StaticMessage;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.anjlab.android.iab.v3.BillingProcessor;
-import com.anjlab.android.iab.v3.TransactionDetails;
+import com.anjlab.android.iab.v3.PurchaseInfo;
+//import com.anjlab.android.iab.v3.TransactionDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import app.intelica.intelicalabs_controller.R;
+//import app.intelica.intelicalabs_controller.Util.GoogleConsole;
+import app.intelica.intelicalabs_controller.Util.StaticMessage;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 public class PaymentScreen extends AppCompatActivity implements BillingProcessor.IBillingHandler {
@@ -46,7 +48,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         }
 
 
-        billingProcessor = new BillingProcessor(this, GoogleConsole.applicationId, this);
+ /*       billingProcessor = new BillingProcessor(this, GoogleConsole.applicationId, this);
         billingProcessor.initialize();
 
         this.billingBtOne = (FancyButton) findViewById(R.id.firstButton);
@@ -57,7 +59,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
 
         // LOAD VIEWS AND CHECK PURCHASED STATUS
         this.paymentAmount();
-        this.checkAlreadyPurchasedProducts();
+        this.checkAlreadyPurchasedProducts();*/
 
         findViewById(R.id.contactButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +68,9 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             }
         });
         findViewById(R.id.restoreButton).setOnClickListener(new View.OnClickListener() {
-            @Override
+     //       @Override
             public void onClick(View view) {
-                billingProcessor.loadOwnedPurchasesFromGoogle();
+          //      billingProcessor.loadOwnedPurchasesFromGoogle();
             }
         });
         findViewById(R.id.shareButton).setOnClickListener(new View.OnClickListener() {
@@ -95,7 +97,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         finish();
     }
 
-    public void paymentAmount() {
+ /*   public void paymentAmount() {
         this.billingBtOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +136,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
             }
         });
 
-    }
+    }*/
 
     protected void sendEmail() {
 
@@ -162,35 +164,40 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
     }
 
     @Override
-    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        Toast.makeText(
-                this,
-                getResources().getText(R.string.donation_thank_you_message),
-                Toast.LENGTH_SHORT
-        ).show();
+    public void onProductPurchased(@NonNull String productId, @Nullable PurchaseInfo details) {
 
-
-        switch (productId) {
-            case GoogleConsole.productOneId:
-                this.billingBtOne.setEnabled(false);
-                break;
-            case GoogleConsole.productTwoId:
-                this.billingBtTwo.setEnabled(false);
-                break;
-            case GoogleConsole.productThreeId:
-                this.billingBtThree.setEnabled(false);
-                break;
-            case GoogleConsole.productFourId:
-                this.billingBtFour.setEnabled(false);
-                break;
-            case GoogleConsole.productFiveId:
-                billingBtFive.setEnabled(false);
-                break;
-            default:
-                Toast.makeText(PaymentScreen.this, "productId not found: " + productId, Toast.LENGTH_LONG).show();
-        }
     }
 
+    /*  @Override
+        public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+            Toast.makeText(
+                    this,
+                    getResources().getText(R.string.donation_thank_you_message),
+                    Toast.LENGTH_SHORT
+            ).show();
+
+
+            switch (productId) {
+                case GoogleConsole.productOneId:
+                    this.billingBtOne.setEnabled(false);
+                    break;
+                case GoogleConsole.productTwoId:
+                    this.billingBtTwo.setEnabled(false);
+                    break;
+                case GoogleConsole.productThreeId:
+                    this.billingBtThree.setEnabled(false);
+                    break;
+                case GoogleConsole.productFourId:
+                    this.billingBtFour.setEnabled(false);
+                    break;
+                case GoogleConsole.productFiveId:
+                    billingBtFive.setEnabled(false);
+                    break;
+                default:
+                    Toast.makeText(PaymentScreen.this, "productId not found: " + productId, Toast.LENGTH_LONG).show();
+            }
+        }
+    */
     @Override
     public void onPurchaseHistoryRestored() {
     }
@@ -208,12 +215,12 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
     public void onBillingInitialized() {
     }
 
-    @Override
+/*    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (!billingProcessor.handleActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
+    }*/
 
     @Override
     public void onDestroy() {
@@ -253,7 +260,7 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
         }
     }
 
-    private void checkAlreadyPurchasedProducts() {
+/*    private void checkAlreadyPurchasedProducts() {
 
         List<String> products = new ArrayList<>();
         products.add(GoogleConsole.productOneId);
@@ -286,5 +293,5 @@ public class PaymentScreen extends AppCompatActivity implements BillingProcessor
                 }
             }
         }
-    }
+    }*/
 }
