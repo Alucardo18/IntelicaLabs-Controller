@@ -1,0 +1,286 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+
+> Task :app:compileDebugJavaWithJavac FAILED
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:28: error: cannot find symbol
+    private Set<BluetoothDevice> pairedDevices;
+                ^
+  symbol:   class BluetoothDevice
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:30: error: cannot find symbol
+    private ListView listView;
+            ^
+  symbol:   class ListView
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:32: error: cannot find symbol
+    private final ActivityResultLauncher<Intent> bluetoothEnableLauncher = registerForActivityResult(
+                                         ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:55: error: cannot find symbol
+    protected void onCreate(Bundle savedInstanceState) {
+                            ^
+  symbol:   class Bundle
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:171: error: cannot find symbol
+    public void help(View view){
+                     ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:224: error: cannot find symbol
+    public void listDevices(View view) {
+                            ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:229: error: cannot find symbol
+    public void disconnect(View view) {
+                           ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:240: error: cannot find symbol
+    public void startBotController(View view) {
+                                   ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:248: error: cannot find symbol
+    public void help(View view){
+                     ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:301: error: cannot find symbol
+    public void listDevices(View view) {
+                            ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:306: error: cannot find symbol
+    public void disconnect(View view) {
+                           ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:317: error: cannot find symbol
+    public void startBotController(View view) {
+                                   ^
+  symbol:   class View
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/Util/bluetooth/BluetoothHelper.java:14: error: cannot find symbol
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_INT_31) {
+                                                                ^
+  symbol:   variable VERSION_INT_31
+  location: class Build
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:35: error: cannot find symbol
+                if (result.getResultCode() == Activity.RESULT_CANCELED) {
+                                              ^
+  symbol:   variable Activity
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:36: error: cannot find symbol
+                    Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+                                                                                 ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:36: error: cannot find symbol
+                    Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+                    ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:49: error: cannot find symbol
+                    Toast.makeText(this, "Bluetooth permissions are required", Toast.LENGTH_SHORT).show();
+                                                                               ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:49: error: cannot find symbol
+                    Toast.makeText(this, "Bluetooth permissions are required", Toast.LENGTH_SHORT).show();
+                    ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:59: error: cannot find symbol
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                                ^
+  symbol:   variable ActivityInfo
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:67: error: cannot find symbol
+        WebView webView = (WebView) findViewById(R.id.webView);
+        ^
+  symbol:   class WebView
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:67: error: cannot find symbol
+        WebView webView = (WebView) findViewById(R.id.webView);
+                           ^
+  symbol:   class WebView
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:76: error: cannot find symbol
+                    Toast.LENGTH_SHORT
+                    ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:73: error: cannot find symbol
+            Toast.makeText(
+            ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:86: error: cannot find symbol
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_INT_31) {
+                                                                ^
+  symbol:   variable VERSION_INT_31
+  location: class Build
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:113: error: cannot find symbol
+        listView = (ListView) findViewById(R.id.listViewPaired);
+                    ^
+  symbol:   class ListView
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:114: error: package AdapterView does not exist
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                                       ^
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:116: error: cannot find symbol
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    ^
+  symbol: class AdapterView
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:116: error: cannot find symbol
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                           ^
+  symbol: class View
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:115: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:117: error: cannot find symbol
+                List<BluetoothDevice> device2 = new ArrayList<BluetoothDevice>(pairedDevices);
+                     ^
+  symbol: class BluetoothDevice
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:117: error: cannot find symbol
+                List<BluetoothDevice> device2 = new ArrayList<BluetoothDevice>(pairedDevices);
+                                                              ^
+  symbol: class BluetoothDevice
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:118: error: cannot find symbol
+                BluetoothDevice selectedDevice = device2.get(position);
+                ^
+  symbol: class BluetoothDevice
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:120: error: cannot find symbol
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_INT_31) {
+                                                                            ^
+  symbol:   variable VERSION_INT_31
+  location: class Build
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:129: error: cannot find symbol
+                        Toast.LENGTH_SHORT
+                        ^
+  symbol: variable Toast
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:126: error: cannot find symbol
+                Toast.makeText(
+                ^
+  symbol: variable Toast
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:139: error: cannot find symbol
+        Intent requestBluetoothOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:139: error: cannot find symbol
+        Intent requestBluetoothOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                                        ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:139: error: cannot find symbol
+        Intent requestBluetoothOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                                               ^
+  symbol:   variable BluetoothAdapter
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:147: error: cannot find symbol
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_INT_31) {
+                                                                        ^
+  symbol:   variable VERSION_INT_31
+  location: class Build
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:155: error: cannot find symbol
+                for (BluetoothDevice bt : pairedDevices) {
+                     ^
+  symbol:   class BluetoothDevice
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:162: error: cannot find symbol
+                Toast.makeText(BotSelector.this, StaticMessage.DV_NOT_FOUND, Toast.LENGTH_LONG).show();
+                                                                             ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:162: error: cannot find symbol
+                Toast.makeText(BotSelector.this, StaticMessage.DV_NOT_FOUND, Toast.LENGTH_LONG).show();
+                ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:165: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.BT_NOT_ENABLE, Toast.LENGTH_LONG).show();
+                                                                          ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:165: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.BT_NOT_ENABLE, Toast.LENGTH_LONG).show();
+            ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:235: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+                                                                         ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:235: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+            ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:242: error: cannot find symbol
+        Intent controller = new Intent(BotSelector.this, BotController.class);
+        ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:242: error: cannot find symbol
+        Intent controller = new Intent(BotSelector.this, BotController.class);
+                                ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:312: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+                                                                         ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:312: error: cannot find symbol
+            Toast.makeText(BotSelector.this, StaticMessage.UN_CONNECTED, Toast.LENGTH_SHORT).show();
+            ^
+  symbol:   variable Toast
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:319: error: cannot find symbol
+        Intent controller = new Intent(BotSelector.this, BotController.class);
+        ^
+  symbol:   class Intent
+  location: class BotSelector
+/Users/emmanuel/Documents/GitHub/IntelicaLabs-Controller/app/src/main/java/app/intelica/intelicalabs_controller/controller/BotSelector.java:319: error: cannot find symbol
+        Intent controller = new Intent(BotSelector.this, BotController.class);
+                                ^
+  symbol:   class Intent
+  location: class BotSelector
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+52 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 817ms
+16 actionable tasks: 2 executed, 14 up-to-date
